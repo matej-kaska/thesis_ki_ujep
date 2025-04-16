@@ -1,0 +1,42 @@
+<div class="col-start-3 col-span-2 flex justify-center">
+ <img
+  src="{{ url_for('static', filename='icons/' + icons.get(activity['color']) + '.png') }}"
+  class="activitytype-icon">
+</div>
+<div class="col-span-20">
+ <h1 class="dynamic-header text-xl font-bold">{{ activity.name }}</h1>
+ <div class="flex items-baseline my-2">
+  {% if 'icons' in activity %}
+   {% for icon in activity['icons'] %}
+    {% if icon != "" %}
+     <img
+      src="{{ url_for('static', filename='activity-icons/' + icon + '.png') }}"
+      class="activity-icon">
+    {% endif %}
+   {% endfor %}
+  {% endif %}
+ </div>
+ <div class="flex flex-wrap items-baseline space-x-1 mt-1">
+  {% if html_tags_remover(newlines_remover(activity['description'])) != "" %}
+   <p>
+    <span class="font-bold">Popis: </span>
+    {{ html_tags_remover(html_entity_replacer(activity.description)) }}
+   </p>
+  {% endif %}
+ </div>
+ <div class="flex items-baseline space-x-1 mt-1">
+  {% if activity['gadgets'] and activity['gadgets']|reject('equalto', '')|list %}
+   <span><h1 class="text-base font-semibold">Pomůcky:</h1></span>
+   <p>{{ empty_string_remover(activity['gadgets'])|join(', ') }}</p>
+  {% endif %}
+ </div>
+ {% set visibileurls = visibility_normalizer(activity['urls'], view) %}
+ {% if visibileurls | length > 0 %}
+  <h1 class="text-base font-semibold mt-1">Odkazy:</h1>
+  {% for url in visibileurls %}
+   {% if url != "" %}
+    <p class="text-sm mt-1 underline">{{ url|urlize(target='_blank') }}</p>
+   {% endif %}
+  {% endfor %}
+ {% endif %}
+</div>

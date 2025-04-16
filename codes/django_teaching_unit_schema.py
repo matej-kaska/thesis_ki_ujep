@@ -1,0 +1,31 @@
+ class TeachingUnit(models.Model):
+  name = models.CharField(max_length=63)
+  description = models.TextField(null=True, blank=True)
+  certificated = models.BooleanField(default=False)
+  is_recommended = models.BooleanField(default=False)
+  creation_date = models.DateField(auto_now_add=True)
+  is_hidden = models.BooleanField(default=False)
+  number_of_lessons = models.IntegerField()
+  number_of_downloads = models.IntegerField(default=0)
+  zip_file = models.FileField(upload_to='teaching_units/zip_files')
+  language = models.ForeignKey(Language, on_delete=models.PROTECT)
+  author = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
+  tags = models.ManyToManyField(Tag, related_name='teaching_units', blank=True)
+  parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
+  alternatives = models.ManyToManyField('self', blank=False)
+  advice_urls = models.ManyToManyField(LinkURL, related_name='advice_urls', blank=True)
+  guide_urls = models.ManyToManyField(LinkURL, related_name='guide_urls', blank=True)
+  subject = models.ForeignKey(Subject, on_delete=models.PROTECT)
+  grade = models.ForeignKey(Grade, on_delete=models.PROTECT)
+  curriculums = models.ManyToManyField(Curriculum, related_name='teaching_units', blank=True)
+  category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True, blank=True)
+ 
+ class Lesson(models.Model):
+  name = models.CharField(max_length=63)
+  preview_file = models.FileField(upload_to='lessons/preview_files')
+  teaching_unit = models.ForeignKey(TeachingUnit, on_delete=models.CASCADE, related_name='lessons')
+ 
+ class Category(models.Model):
+  name = models.CharField(max_length=63)
+  parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children')
+  subject = models.ForeignKey(Subject, on_delete=models.PROTECT, blank=True, null=True)

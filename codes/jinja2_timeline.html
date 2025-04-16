@@ -1,0 +1,38 @@
+{% if lesson['activities_list'] %}
+ {% set total_time = namespace(value=0) %}
+ {% for list_of_activities in lesson['activities_list'] %}
+  {% if list_of_activities['activities'] %}
+   {% set total_time.value = total_time.value + list_of_activities['activities'][0]['size'] %}
+   {% set parallel_activities_count = list_of_activities['activities']|length %}
+  {% endif %}
+  {% if loop.index == last_activity_row_index %}
+   {% set is_last_row = true %}
+  {% endif %}
+  {% for activity in list_of_activities['activities'] %}
+   <section class="activity">
+    <div class="grid grid-cols-24 gap-y-4 mt-12">
+     <div class="col-span-2 text-center text-lg font-semibold">
+      {% if is_last_row %}
+       {% if loop.index == 1 %}
+        <p>{{ total_time.value }} min</p>
+       {% endif %}
+      {% elif loop.index == 1 %}
+       <p>{{ total_time.value }} min</p>
+       <div 
+        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
+        style="height: calc(100% + 1.25rem);"></div>
+      {% elif loop.last %}
+       <div
+        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
+        style="height: calc(100% + 3rem);"></div>
+      {% else %}
+       <div
+        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
+        style="height: calc(100% + 3.5rem);"></div>
+      {% endif %}
+     </div>
+    </div>
+   </section>
+  {% endfor %}
+ {% endfor %}
+{% endif %}
