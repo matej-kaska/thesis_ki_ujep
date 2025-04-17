@@ -600,8 +600,6 @@ Komplexní hodnocení propojuje formativní a~sumativní přístupy a~vedle zná
 
 \section{Životní cyklus softwaru}
 
-\subsection{Charakteristika životního cyklu}
-
 Životní cyklus softwaru představuje chronologicky propojenou soustavu stavů, kterými software postupně prochází od~počátečního návrhu až po~finální údržbu. Tento cyklus zahrnuje všechny kroky nutné k~vytvoření kvalitního produktu, který odpovídá potřebám uživatelů a~zadavatelů. Životní cyklus je přizpůsobitelný různým typům projektů a~metodikám, což z~něj činí univerzální rámec vhodný pro~malé i~rozsáhlé projekty. Jeho správné řízení zajišťuje efektivitu vývoje a~umožňuje reagovat na~změny v~průběhu celého projektu. Životní cyklus softwaru je řízen procesem vývoje softwaru.
 
 Proces vývoje softwaru je systematický a~strukturovaný přístup, jehož cílem je vytvořit spolehlivý a~funkční produkt. Tento proces minimalizuje rizika a~chyby, optimalizuje využití zdrojů a~zajišťuje splnění jak funkčních, tak mimofunkčních požadavků. Každá fáze vývoje, od~analýzy a~návrhu přes implementaci až po~testování a~nasazení, má jasně stanovené cíle a~výstupy, které tvoří základ pro~další kroky. Strukturovaný proces navíc podporuje týmovou spolupráci a~usnadňuje komunikaci mezi členy týmu, vedením projektu a~uživateli, čímž přispívá k~hladkému průběhu vývoje.
@@ -619,7 +617,7 @@ V~této fázi dochází k~definování:
 \begin{itemize}
 	\item funkčních požadavků (co má software dělat, např.~možnost registrace uživatele),
 	\item mimofunkčních požadavků (např.~výkon, bezpečnost, škálovatelnost),
-	\item základních cílů projektu (časový harmonogram, rozpočet, klíčové milníky).
+	\item základních cílů projektu (např.~časový harmonogram, rozpočet, klíčové milníky).
 \end{itemize}
 
 \needspace{5\baselineskip}
@@ -704,16 +702,16 @@ Efektivní práce v~týmu a~správné řízení projektů jsou klíčovými fakt
 
 \needspace{6\baselineskip}
 \begin{itemize}
-	\item \textbf{Scrum:} Agilní přístup zaměřený na~iterativní vývoj v~rámci krátkých časových úseků, tzv. sprintů (obvykle 1--4~týdny). Týmy se pravidelně setkávají na~stand-upech, kde sdílejí pokrok a~překážky. Scrum role zahrnují:
+	\item \textbf{Scrum:} Agilní přístup zaměřený na~iterativní vývoj v~rámci krátkých časových úseků, tzv.~sprintů ~obvykle 1--4~týdny). Týmy se pravidelně setkávají na~stand-upech, kde sdílejí pokrok a~překážky. Scrum role zahrnují:
 	\begin{itemize}
-		\item \textbf{Product owner:} Zodpovídá za~správu produktového backlogu, stanovuje priority úkolů a~zajišťuje soulad s~požadavky stakeholderů.
-		\item \textbf{Scrum master:} Koordinuje tým, zajišťuje dodržování Scrum metodiky, pomáhá odstraňovat překážky a~spolupracuje s~product ownerem.
+		\item \textbf{Product owner:} Zodpovídá za~správu produktového backlogu~(nedodělky), stanovuje priority úkolů a~zajišťuje soulad s~požadavky stakeholderů.
+		\item \textbf{Scrum master:} Koordinuje tým, zajišťuje dodržování Scrum metodiky, pomáhá odstraňovat překážky a~spolupracuje s~product ownerem na výběru požadavků do sprint backlogu, které se budou vyvíjet v aktuálním sprintu (iteraci).
 		\item \textbf{Tým vývojářů:} Realizuje zadané úkoly, vytváří funkční řešení a~dodává výsledky v~rámci sprintů.
 	\end{itemize}
 	
 	\item \textbf{Waterfall (vodopád):} Tradiční lineární model, kde jednotlivé fáze (analýza, návrh, vývoj, testování, nasazení) probíhají sekvenčně. Každá fáze musí být dokončena, než se přejde k~další. Vhodné pro~projekty s~pevně definovanými požadavky.
 	
-	\item \textbf{Kanban:} Vizualizační metoda řízení úkolů, která umožňuje flexibilní plánování práce bez~striktních iterací. Úkoly se přesouvají mezi stavy jako \textit{To Do}, \textit{In Progress} a~\textit{Done}.
+	\item \textbf{Kanban:} Vizualizační metoda řízení úkolů, která umožňuje flexibilní plánování práce bez~striktních iterací. Práce je rozdělena na menší části (karty), které se přesouvají mezi stavy jako \textit{To Do}, \textit{In Progress} a~\textit{Done}.
 	
 	\item \textbf{Agilní přístupy obecně:} Metodiky jako \textit{Extrémní programování} nebo \textit{Lean development} kladou důraz na~adaptivní plánování, průběžné zlepšování a~rychlé dodání funkčního softwaru.
 	
@@ -728,36 +726,38 @@ Efektivní práce v~týmu a~správné řízení projektů jsou klíčovými fakt
 \textbf{Pracovní postup v~Gitu:}
 \begin{itemize}
 	\item \textbf{Hlavní větve:} Typicky se používají větve jako \texttt{main}, \texttt{development} a~další specifické větve s~prefixem \texttt{feature} pro~nové funkce.
-	\item \textbf{Pull requests a~code review:} Každá změna prochází kontrolou kvality a~schválením před sloučením do~hlavní větve.
-	\item \textbf{Řešení konfliktů:} Konflikty při slučování větví jsou řešeny týmem a~vyžadují komunikaci a~koordinaci.
+	\item \textbf{Pull requests~(žádost o~sloučení kódu) a~code review~(vzájemné zhodnocení kvality kódové báze):} Každá změna prochází kontrolou kvality a~schválením před sloučením do~hlavní větve.
+	\item \textbf{Řešení konfliktů~(issues):} Konflikty mezi různými změnami kódu jsou řešeny při~slučování větví~(merge) a~vyžadují komunikaci mezi~členy týmu.
 \end{itemize}
 
 Práce v~týmu a~správná správa verzí jsou základními stavebními kameny moderního vývoje softwaru. Díky těmto nástrojům a~postupům mohou týmy spolupracovat efektivně, rychle reagovat na~změny a~udržovat vysokou kvalitu produktu.
 
 \subsection{DevOps a~CI/CD pipeline}
 
-\textit{DevOps} je moderní přístup k~vývoji softwaru, který propojuje vývojové a~provozní týmy, aby zefektivnil a~automatizoval procesy od~psaní kódu až po~nasazení aplikace. Klíčovým prvkem DevOps je \textit{CI/CD pipeline} (Continuous Integration / Continuous Deployment), která umožňuje průběžnou integraci, testování a~nasazení softwaru.
+\textit{DevOps} je moderní přístup k~vývoji softwaru, který propojuje vývojové a~provozní týmy, aby zefektivnil a~automatizoval procesy od~psaní kódu až po~nasazení softwaru. Klíčovým prvkem DevOps je \textit{CI/CD pipeline} (Continuous Integration / Continuous Deployment), která umožňuje průběžnou integraci, testování a~nasazení softwaru.
+
+\newpage
 
 \subsubsection{Continuous Integration (CI)}
 
 CI zajišťuje, že všechny změny v~kódu jsou průběžně integrovány do~hlavní větve projektu a~automaticky testovány.
 
 \needspace{4\baselineskip}
-\textbf{CI zahrnuje:}
+\textbf{Proces zahrnuje:}
 \begin{itemize}
-	\item automatické spouštění testů (unit, integration, regression),
+	\item automatické spouštění testů (např.~jednotkové, integrační, regresní),
 	\item kontrolu kvality kódu pomocí \textit{lintování} nebo statické analýzy,
 	\item rychlé odhalování chyb a~minimalizaci konfliktů při slučování kódu.
 \end{itemize}
 
 \subsubsection{Continuous Deployment (CD)}
 
-CD umožňuje automatizované nasazení softwaru do~produkčního prostředí a~zkracuje dobu mezi vývojem a~nasazením.
+CD umožňuje automatizované nasazení softwaru do produkčního prostředí, což výrazně zkracuje dobu mezi~vývojem a~použitím softwaru uživateli.
 
 \needspace{4\baselineskip}
-\textbf{CD zahrnuje:}
+\textbf{Proces zahrnuje:}
 \begin{itemize}
-	\item spuštění pipeline pro~build a~přípravu kódu,
+	\item spuštění pipeline, která připraví kód k~nasazení~(build),
 	\item automatické nasazení do~testovacího nebo produkčního prostředí,
 	\item možnost rollbacku v~případě problémů.
 \end{itemize}
@@ -770,7 +770,7 @@ CD umožňuje automatizované nasazení softwaru do~produkčního prostředí a~
 	\item možnost kontinuálních aktualizací a~rychlá reakce na~změny.
 \end{itemize}
 
-Mezi nejčastěji používané nástroje patří \textit{GitHub Actions}, \textit{GitLab CI/CD} nebo \textit{Jenkins}. Nasazení CI/CD pipeline je klíčovým krokem k~zajištění efektivity, kvality a~flexibility moderního vývoje.
+Mezi nejpopulárnější nástroje pro CI/CD pipeline patří \textit{GitHub Actions}, který nabízí snadnou integraci s~\textit{GitHub} repozitáři a~umožňuje automatizaci procesů zdarma. Dalšími často používanými nástroji jsou \textit{GitLab CI/CD} anebo \textit{Jenkins}. Nasazení CI/CD pipeline je klíčovým krokem k~zajištění efektivity, kvality a~flexibility moderního vývoje.
 
 \chapter{Praktická část}
 
