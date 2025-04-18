@@ -776,7 +776,7 @@ Mezi nejpopulárnější nástroje pro CI/CD pipeline patří \textit{GitHub Act
 
 \section{Návrh architektury, komponent a~schématu databáze platformy}
 
-Tato kapitola se zaměřuje na~návrh architektury, komponent a~databázového schématu platformy pro~plánování výuky a~sdílení výukových plánů. Prostřednictvím diagramů nasazení je znázorněno nasazení dvou hlavních aplikací~--~\textit{EDUBO} (editor výukových plánů) a~\textit{Eduklub~--~plány výuky} (webový agregátor sdílených výukových plánů). Obě aplikace jsou nasazeny pomocí Docker Compose, což zajišťuje modularitu a~snadnou správu jednotlivých komponent.
+Tato kapitola se zaměřuje na~návrh architektury, komponent a~databázového schématu platformy pro~plánování výuky a~sdílení výukových plánů. Prostřednictvím diagramů nasazení je znázorněno nasazení dvou aplikací~--~\textit{EDUBO} (editor výukových plánů) a~\textit{Eduklub~--~plány výuky} (webový agregátor sdílených výukových plánů). Obě aplikace jsou nasazeny pomocí Docker Compose, což zajišťuje modularitu a~snadnou správu jednotlivých komponent.
 
 Dále jsou v~kapitole rozebrány struktury složek a~databázové modely, které popisují organizaci backendu a~frontendu. Entitně-vztahové diagramy a~databázová schémata pak detailně znázorňují vztahy mezi hlavními entitami systému.
 
@@ -784,7 +784,7 @@ Dále jsou v~kapitole rozebrány struktury složek a~databázové modely, které
 
 \begin{figure}[H]
 	\centering
-	\resizebox{16cm}{!}{\includegraphics{deployment-diagram-1.png}}
+	\resizebox{15.25cm}{!}{\includegraphics{deployment-diagram-1.png}}
 	\caption{Diagram nasazení znázorňující komunikaci přes~TCP/IP protokol aplikace \textit{EDUBO}.}
 	\label{fig:deployment-diagram-1}
 \end{figure}
@@ -793,16 +793,16 @@ Tento diagram nasazení znázorňuje strukturu nasazení aplikace pro~plánován
 
 Klient představuje zařízení uživatele (např.~počítač nebo mobil), který přistupuje k~aplikaci. Komunikuje s~\textbf{Edge} kontejnerem (NGINX) přes protokol TCP/IP, který zajišťuje směrování požadavků do~backendu nebo frontendu. Správce komunikuje přímo s~kontejnerem \textbf{Mongo Express}, který slouží k~správě databáze MongoDB.
 
-Celý systém je nasazen v~rámci prostředí Docker Compose, které umožňuje spravovat více kontejnerů najednou. Následuje přehled jednotlivých komponent:
+Celý systém je nasazen v~rámci prostředí Docker Compose, které umožňuje spravovat více kontejnerů najednou. V~rámci Docker Compose existuje několik kontejnerů, které plní různé funkce, každý je popsán následovně:
 
 \subsubsection{NGINX}
 NGINX je nakonfigurován jako reverzní proxy server. Jeho úkolem je přijímat požadavky od~klienta a~směrovat je na~příslušné komponenty v~rámci aplikace, například do~frontendu nebo backendu. Tento kontejner je sestaven pomocí \texttt{Dockerfile} (v~diagramu vyjádřeno jako stereotyp \textit{<<docker build>>}), což umožňuje přizpůsobit konfiguraci NGINX podle specifických potřeb aplikace (např.~využití Brotli komprese). Komunikuje s~frontendem a~backendem přes TCP/IP a~také zprostředkovává připojení klienta k~Mongo Express a~dalším službám.
 
 \subsubsection{Frontend}
-Tato komponenta je zodpovědná za~zobrazení uživatelského rozhraní. Obsahuje kód frontendu aplikace (např.~HTML, CSS, TypeScript) a~je vystavena prostřednictvím NGINX. Tento kontejner je sestaven pomocí \texttt{Dockerfile}, aby zahrnoval specifické konfigurace a~balíčky potřebné pro~provoz uživatelského rozhraní. Komunikuje s~NGINX přes TCP/IP protokol, který přijímá požadavky od~klienta a~přesměrovává je do~frontendu.
+Tato komponenta je zodpovědná za~zobrazení uživatelského rozhraní. Obsahuje kód frontendu aplikace (např.~HTML, CSS, TypeScript) a~je servírována prostřednictvím NGINX. Tento kontejner je sestaven pomocí \texttt{Dockerfile}, aby zahrnoval specifické konfigurace a~balíčky potřebné pro~provoz uživatelského rozhraní. Komunikuje s~NGINX přes TCP/IP protokol, který přijímá požadavky od~klienta a~přesměrovává je do~frontendu.
 
 \subsubsection{Backend}
-Backend obsahuje aplikační logiku, která zpracovává požadavky z~frontendu. Je vystaven prostřednictvím NGINX a~komunikuje s~dalšími službami (např.~MongoDB). Tento kontejner je sestaven pomocí \texttt{Dockerfile}, což umožňuje nastavit backend tak, aby odpovídal specifickým požadavkům aplikace, včetně požadovaných knihoven a~závislostí. Zajišťuje interakce mezi uživatelskými požadavky (přijatými přes frontend) a~databází, případně dalšími zdroji.
+Backend obsahuje aplikační logiku, která zpracovává požadavky z~frontendu. Je servírován prostřednictvím NGINX a~komunikuje s~dalšími službami (např.~MongoDB). Tento kontejner je sestaven pomocí \texttt{Dockerfile}, což umožňuje nastavit backend tak, aby odpovídal specifickým požadavkům aplikace, včetně požadovaných knihoven a~závislostí. Zajišťuje interakce mezi uživatelskými požadavky (přijatými přes frontend) a~databází, případně dalšími zdroji.
 
 \subsubsection{MongoDB}
 MongoDB je dokumentová databáze používaná k~ukládání dat aplikace. Tento kontejner je vytvořen pomocí obrazu z~DockerHubu (v~diagramu vyjádřeno jako stereotyp \textit{<<docker image>>}), což zjednodušuje nasazení databáze bez~nutnosti vlastní konfigurace. Komunikuje s~backendem přes TCP/IP protokol a~poskytuje úložiště pro~data, která jsou uložena ve~formátu Binary JSON (BSON).
@@ -811,7 +811,7 @@ MongoDB je dokumentová databáze používaná k~ukládání dat aplikace. Tento
 Mongo Express je webové rozhraní pro~správu MongoDB, které umožňuje vizuální správu databáze. Běží jako samostatný kontejner a~poskytuje přístup k~MongoDB pro~administrativní účely. Tento kontejner je vytvořen pomocí obrazu z~DockerHubu, což poskytuje rychlý a~snadný způsob pro~správu MongoDB. Komunikuje přímo s~MongoDB pomocí TCP/IP protokolu a~umožňuje správci snadno procházet a~manipulovat s~daty uloženými v~databázi.
 
 \subsubsection{File Volume}
-File Volume je úložný prostor pro~soubory, které jsou nahrány do~hodin. Tento objem zajišťuje, že soubory a~data budou uchovány i~při restartu kontejnerů a~slouží jako externí úložiště.
+File Volume je úložný prostor pro~soubory, které jsou nahrány do~výukových plánů. Tento objem zajišťuje, že soubory a~data budou uchovány i~při restartu kontejnerů a~slouží jako externí úložiště.
 
 \subsection{Nasazení aplikace Eduklub~--~plány výuky}
 
@@ -842,7 +842,7 @@ Tento diagram balíčků zobrazuje strukturu složek aplikace \textit{EDUBO} pos
 \begin{itemize}
 	\item \texttt{GlobalConstants}: Tato složka obsahuje globální konstanty, které jsou využívány v~celém backendu. Tyto konstanty zahrnují nastavení aplikace, konfigurace nebo klíčové proměnné, které jsou sdíleny mezi jednotlivými moduly.
 	\item \texttt{Jsons}: Složka obsahuje příkladné JSON soubory, které ukazují, jak vypadají datové struktury typů aktivit, výukového plánu, kurikulárních výstupů a~uživatelských dat.
-	\item \texttt{Models}: Obsahuje Pydantic modely a~schémata, které definují strukturu a~validaci dat.
+	\item \texttt{Models}: Obsahuje Pydantic modely a~Marshmallow schémata, které definují strukturu a~validaci dat.
 	\item \texttt{Operations}: Tato složka zahrnuje databázové operace, tedy CRUD (Create, Read, Update, Delete) operace pro~MongoDB. Každá operace je implementována jako funkce, která interaguje s~databází a~umožňuje manipulaci s~uloženými daty.
 	\item \texttt{Services}: Obsahuje API endpointy, které jsou definovány pomocí Flask blueprintů. Tyto služby fungují podobně jako views v~Djangu, kde každý service odpovídá určitému API endpointu a~zpracovává konkrétní typ požadavku (např.~GET, POST). Blueprinty v~této složce rozdělují logiku aplikace na~menší, modulární části, což usnadňuje správu a~rozšiřování kódu.
 	\item \texttt{Templates}: Složka pro~šablony určené k~vykreslení PDF dokumentů, konkrétně plánů výuky. Obsahuje Jinja2 kód, který se generuje jako HTML výstup, který si mohou uživatelé stáhnout nebo vytisknout ve~formě PDF.
@@ -862,7 +862,7 @@ Tento diagram balíčků zobrazuje strukturu složek aplikace \textit{EDUBO} pos
 		\item \texttt{redux}: Obsahuje konfigurace a~reducery pro~Redux, což je knihovna pro~správu stavu aplikace.
 		\item \texttt{utils}: Stejně jako na~backendu, tato složka obsahuje pomocné funkce, které se používají napříč frontendem. Jsou zde například funkce pro~formátování dat.
 		\item \texttt{node\_modules}: Tato složka obsahuje všechny závislosti a~knihovny nainstalované pomocí Node.js. Je automaticky generována při instalaci balíčků a~obsahuje knihovny třetích stran.
-		\item \texttt{public}: Složka pro~veřejné soubory, které jsou přístupné přímo z~prohlížeče (např.~favicon, \texttt{index.html}). Tyto soubory jsou statické a~nemění se během běhu aplikace.
+		\item \texttt{public}: Složka pro~veřejné soubory, které jsou přístupné přímo z~prohlížeče\break(např.~favicon, \texttt{index.html}). Tyto soubory jsou statické a~nemění se během běhu aplikace.
 	\end{itemize}
 \end{itemize}
 
@@ -888,7 +888,7 @@ Tento diagram balíčků zobrazuje strukturu složek webové agregátoru výukov
 		\item \texttt{users}: Obsahuje views specifické pro~správu uživatelů, například autentizaci, registraci a~správu uživatelských profilů.
 	\end{itemize}
 	\item \texttt{serializers}: Obsahuje serializéry, které převádějí data mezi Django modely a~JSON formátem.
-	\item \texttt{tests}: Obsahuje testy pro~jednotlivé části API, které slouží k~ověření funkčnosti a~správnosti implementace.
+	\item \texttt{tests}: Obsahuje testy pro~jednotlivé části API, které slouží k~ověření funkčnosti~\mbox{implementace.}
 	\item \texttt{backend}: Obsahuje hlavní konfigurační soubory a~nastavení specifické pro~backend aplikace. Může obsahovat například nastavení databáze, middleware nebo bezpečnostní konfigurace.
 	\item \texttt{eduklub}: Tato složka obsahuje modely všech objektů kromě uživatelů.
 	\item \texttt{users}: Složka pro~správu uživatelských účtů a~uživatelských modelů. Obsahuje funkce pro~autentizaci, autorizaci a~správu profilů.
@@ -897,6 +897,7 @@ Tento diagram balíčků zobrazuje strukturu složek webové agregátoru výukov
 
 \subsection{Databázové schéma aplikace EDUBO}
 
+\needspace{9\baselineskip}
 V~systému se nachází následující entity:
 \begin{itemize}
 	\item Uživatel~--~osoba, která pracuje s~aplikací. Může to být učitel, žák nebo rodič.
@@ -910,35 +911,63 @@ V~systému se nachází následující entity:
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{erd-1.png}}
-	\caption{Entitně vztahový diagram znázorňující databázovou strukturu aplikace \textit{EDUBO}.}
+	\caption{Entitně-vztahový diagram znázorňující databázovou strukturu aplikace \textit{EDUBO}.}
 	\label{fig:erd-1}
 \end{figure}
 
-Tento entitně vztahový diagram popisuje databázovou strukturu pro aplikaci \textit{EDUBO}. Diagram je navržen specificky pro dokumentovou databázi, kde některé tabulky fungují jako objekty s~poli dalších podobjektů. Šipky s~vidlicí vedoucí přímo do názvu tabulky označují podtabulky (pole objektů), což znamená, že pokud má záznam v~prvním sloupci \quotedblbase A``, odkazuje na pole těchto objektů. Tento diagram není kompletní a~chybí zde šest tabulek (\texttt{Class}, \texttt{ClassKey}, \texttt{ParentKey}, \texttt{ActivityTypes}, \texttt{ActivityTypeList}, \texttt{Rating}) a~to kvůli čitelnosti. Kompletní diagram se nachází v~externí příloze. Diagram zajišťuje organizaci dat týkajících se~uživatelů, dat učitelů a~výukových hodin.
+Tento entitně-vztahový diagram popisuje databázovou strukturu pro aplikaci \textit{EDUBO}. Diagram je navržen specificky pro dokumentovou databázi, kde některé tabulky fungují jako objekty s~poli dalších podobjektů. Šipky s~vidlicí vedoucí přímo do názvu tabulky označují podtabulky (pole objektů), což znamená, že pokud má záznam v~prvním sloupci \quotedblbase A``, odkazuje na pole těchto objektů. Tento diagram není kompletní a~chybí zde šest tabulek (\texttt{Class}, \texttt{ClassKey}, \texttt{ParentKey}, \texttt{ActivityTypes}, \texttt{ActivityTypeList}, \texttt{Rating}) a~to kvůli čitelnosti. Kompletní diagram se nachází v~externí příloze. Diagram zajišťuje organizaci dat týkajících se~uživatelů, dat učitelů a~výukových plánů.
 
 \textbf{Popis důležitých objektů:}
 \begin{itemize}
-	\item \texttt{User}: Obsahuje základní informace o~uživatelích systému.
-	
-	Atribut \texttt{role} definuje roli uživatele v~systému (student, teacher nebo parent). Atribut \texttt{data\_id} odkazuje na~objekt v~tabulce \texttt{UserData}, který obsahuje podrobné informace o~uživateli.
-	
-	\item \texttt{Curriculum}: Tabulka, která obsahuje přiřazené kurikulární výstupy k~předmětům.
-	
-	Obsahuje dvě hlavní pole:
+	\item \texttt{User:} Obsahuje základní informace o~uživatelích systému.
 	\begin{itemize}
-		\item \texttt{assigned\_curriculums}~--~výčet výstupů, které učitel přiřadil k~danému předmětu. Každý záznam obsahuje \texttt{id\_of\_subject} (identifikátor předmětu) a~\texttt{curriculums} (pole výstupů).
-		\item \texttt{curriculum\_list}~--~výchozí a~vlastní nahrané výstupy, které může uživatel přiřadit ke~svým předmětům. Každý záznam obsahuje název předmětu a~pole výstupů.
+		\item \texttt{role}~--~Role uživatele v~systému (student, teacher nebo parent).
+		\item \texttt{data\_id}~--~Odkaz na~objekt v~tabulce \texttt{UserData}, který obsahuje podrobné informace o~uživateli.
 	\end{itemize}
 	
-	\item \texttt{UserData}: Obsahuje podrobné informace o~uživateli.
+	\item \texttt{Curriculum:} Tabulka, která obsahuje přiřazené kurikulární výstupy k~předmětům.
+	\begin{itemize}
+		\item \texttt{assigned\_curriculums}~--~Pole přiřazených kurikulárních výstupů k~předmětům. 
+		\\\texttt{id\_of\_subject}, \texttt{curriculums}: Výčet výstupů, které učitel přiřadil k~danému předmětu.
+		\item \texttt{curriculum\_list}~--~Výchozí a~vlastní nahrané výstupy, které uživatel může přiřadit ke~svým předmětům.
+		\\\texttt{subject}, \texttt{curriculums}: Název předmětu a~výstupy pro~daný předmět.
+	\end{itemize}
 	
-	Obsahuje např.~pole \texttt{classes}, které odkazuje na~jednotlivé třídy. Každá třída obsahuje pole \texttt{subjects}, ve kterém se nachází název předmětu a~přiřazené výukové celky. Každý výukový celek obsahuje poznámky a~seznam výukových hodin (\texttt{lessons}). Každá hodina má příznak \texttt{published} a~pole \texttt{days\_of\_usage}, které definuje, kdy je hodina použita.
+	\item \texttt{UserData:} Obsahuje podrobné informace o~uživateli.
+	\begin{itemize}
+		\item \texttt{classes}~--~Seznam tříd, ke~kterým je uživatel přiřazen.
+		\\Každá třída obsahuje:
+		\item \texttt{subjects}~--~Pole předmětů vyučovaných v~dané třídě.
+		\\Každý předmět obsahuje:
+		\item \texttt{name}~--~Název předmětu.
+		\item \texttt{teaching\_units}~--~Výukové celky, které daný předmět obsahuje.
+		\\Každý výukový celek obsahuje:
+		\item \texttt{notes}~--~Poznámky k~výukovému celku.
+		\item \texttt{lessons}~--~Seznam výukových plánů.
+		\\Každý výukový plán obsahuje:
+		\item \texttt{published}~--~Příznak publikace výukového plánu.
+		\item \texttt{days\_of\_usage}~--~Termíny, kdy byl výukový plán použit.
+	\end{itemize}
 	
-	\item \texttt{Lesson}: Tabulka obsahující informace o~jednotlivých výukových hodinách.
-	
-	Obsahuje název, poznámky, délku v~minutách, přiřazené kurikulární výstupy, cíl a~pole paralelních aktivit \texttt{activities\_list}. Každý prvek v~\texttt{activities\_list} obsahuje pole aktivit, které odkazují na~tabulku \texttt{Activity}.
-	
-	Dále obsahuje volitelné bloky \texttt{activities\_before} a~\texttt{activities\_after}, které mohou obsahovat pole aktivit s~následujícími atributy: název, velikost, popis, odkaz na~článek na~Eduklubu (\texttt{club\_url}), pomůcky (\texttt{gadgets}), soubory a~URL odkazy. Každý soubor nebo odkaz obsahuje název, viditelnost, popis a~odkaz na~soubor.
+	\needspace{16\baselineskip}
+	\item \texttt{Lesson:} Obsahuje informace o~jednotlivých výukových plánech.
+	\begin{itemize}
+		\item \texttt{name}~--~Název výukového plánu.
+		\item \texttt{notes}~--~Poznámky k~výukovému plánu.
+		\item \texttt{length\_in\_mins}~--~Délka trvání výukového plánu v~minutách.
+		\item \texttt{curriculums}~--~Přiřazené kurikulární výstupy.
+		\item \texttt{goal}~--~Vzdělávací cíl výukového plánu.
+		\item \texttt{activities\_list}~--~Pole paralelních aktivit, které se~realizují během výuky.
+		\\Každé pole obsahuje \texttt{activities}, což jsou pole, které obsahují samotné aktivity.
+		\item \texttt{activities\_before}, \texttt{activities\_after}~--~Pole aktivit před nebo po~hodině.
+		\\Každá aktivita obsahuje:
+		\item \texttt{name}, \texttt{size}, \texttt{description}, \texttt{icons}, \texttt{color}~--~Základní informace.
+		\item \texttt{club\_url}~--~Odkaz na~související metodické materiály na~platformě Eduklub.
+		\item \texttt{gadgets}~--~Pomůcky využívané během aktivity.
+		\item \texttt{files}, \texttt{urls}~--~Soubory a~odkazy připojené k~aktivitě.
+		\\Každý soubor/odkaz zahrnuje:
+		\item \texttt{name}, \texttt{visibility}, \texttt{description}, \texttt{url\_to\_file}~--~Základní informace.
+	\end{itemize}
 \end{itemize}
 
 \newpage % TODO: SMAZAT???? %
@@ -986,7 +1015,7 @@ class LessonDatabaseSchema(Schema):
  activities_after = fields.List(fields.Nested(ActivitySchema))
 \end{lstlisting}
 
-Toto schéma definuje strukturu výukového plánu pomocí ORM (Objektově-relační mapování) knihovny Marshmallow v~jazyce Python. Každá lekce je reprezentována třídou\break\texttt{LessonDatabaseSchema}, která obsahuje klíčové informace, jako je název, čas vytvoření, poznámky a~délka lekce. Lekce může mít přiřazené kurikulární výstupy a~definovaný cíl hodiny. Klíčovou součástí schématu je seznam aktivit, který je strukturován do~tří hlavních částí~--~běžné aktivity v~hodině (\texttt{activities\_list}), aktivity před hodinou (\texttt{activities\_before}) a~aktivity po hodině (\texttt{activities\_after}). Každá aktivita (\texttt{ActivitySchema}) má své unikátní ID, název, popis, velikost a~další atributy, jako je barva, soubory, URL odkazy a~pomůcky.
+Toto schéma definuje strukturu výukového plánu pomocí ORM (Objektově-relační mapování) knihovny Marshmallow v~jazyce Python. Každá lekce je reprezentována třídou\break\texttt{LessonDatabaseSchema}, která obsahuje klíčové informace, jako je název, čas vytvoření, poznámky a~délka lekce. Lekce může mít přiřazené kurikulární výstupy a~definovaný cíl. Klíčovou součástí schématu je seznam aktivit, který je strukturován do~tří hlavních částí~--~běžné aktivity v~hodině (\texttt{activities\_list}), aktivity před hodinou (\texttt{activities\_before}) a~aktivity po hodině (\texttt{activities\_after}). Každá aktivita (\texttt{ActivitySchema}) má své unikátní ID, název, popis, velikost a~další atributy, jako je barva, soubory, URL odkazy a~pomůcky.
 
 Další částí modelu je hodnocení výukových plánů, které je reprezentováno třídou \texttt{Rating}. Každý žák může označit lekci jako pozitivní, negativní, neutrální nebo ji neohodnotit. Pro~správu souborů a~odkazů byla vytvořena samostatná struktura \texttt{ExtendedItems}, která určuje viditelnost těchto položek (pro~studenty, učitele nebo po~hodině).
 
@@ -995,11 +1024,11 @@ Další částí modelu je hodnocení výukových plánů, které je reprezentov
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{erd-2.png}}
-	\caption{Entitně vztahový diagram znázorňující databázovou strukturu aplikace \textit{Eduklub~--~plány výuky}.}
+	\caption{Entitně-vztahový diagram znázorňující databázovou strukturu aplikace \textit{Eduklub~--~plány výuky}.}
 	\label{fig:erd-2}
 \end{figure}
 
-Tento entitně vztahový diagram popisuje databázovou strukturu pro webový agregátor výukových plánů. Diagram není kompletní a~chybí zde tři tabulky (\texttt{favoritelist\_teaching\_units}, \texttt{user}, \texttt{favoritelist}) z~důvodu úspory místa v~textu této závěrečné práce. Kompletní diagram se~nachází v~externí příloze.
+Tento entitně-vztahový diagram popisuje databázovou strukturu pro webový agregátor výukových plánů. Diagram není kompletní a~chybí zde tři tabulky (\texttt{favoritelist\_teaching\_units}, \texttt{user}, \texttt{favoritelist}) z~důvodu úspory místa v~textu této závěrečné práce. Kompletní diagram se~nachází v~externí příloze.
 
 Popis důležitých tabulek:
 \begin{itemize}
@@ -1012,7 +1041,8 @@ Popis důležitých tabulek:
 		\item \texttt{grade\_id}: Ročník, do~kterého výukový celek spadá.
 		\item \texttt{parent\_id}: Odkaz na~rodičovský celek, pokud se~jedná o~mutaci jiného celku.
 		\item \texttt{subject\_id}: Předmět, do~které výukový celek spadá.
-		\item \texttt{category\_id}: Kategorie, do~které výukový celek spadá. Tabulka \texttt{eduklub\_category} obsahuje \texttt{subject\_id}. Tento vztah umožňuje, aby kategorie existovaly samostatně, i~bez přiřazení konkrétního výukového celku.
+		\item \texttt{category\_id}: Kategorie, do~které výukový celek spadá. Tabulka \texttt{eduklub\_category} obsahuje \texttt{subject\_id}. Tento vztah umožňuje existenci kategorií i~bez přiřazení konkrétního výukového celku, což je nezbytné pro robustní filtrovací systém aplikace. Výukový celek nemusí být přiřazen k~žádné kategorii, ale vždy spadá pod předmět.
+		
 	\end{itemize}
 	
 	\item \textbf{eduklub\_lesson}: Tabulka pro jednotlivé výukové hodiny, které jsou součástí výukových celků.
@@ -1043,7 +1073,7 @@ Popis důležitých tabulek:
 		\item \texttt{rating\_id}: Odkaz na~hodnocení, ke~kterému komentář patří.
 	\end{itemize}
 	
-	\item \textbf{eduklub\_gradetype}: Typ vzdělávacího stupně, který poskytuje specifikaci pro jednotlivé ročníky.
+	\item \textbf{eduklub\_gradetype}: Typ vzdělávacího stupně, který poskytuje specifikaci pro jednotlivé ročníky v~tabulce \texttt{eduklub\_grade}. Například 1.~stupeň základní školy.
 	\begin{itemize}
 		\item \texttt{id}, \texttt{name}: Primární klíč a~název typu ročníku.
 	\end{itemize}
@@ -1053,9 +1083,6 @@ Popis důležitých tabulek:
 		\item \texttt{name}, \texttt{grade\_type\_id}: Název ročníku a~odkaz na~typ ročníku.
 	\end{itemize}
 \end{itemize}
-
-
-
 
 \begin{lstlisting}
  class TeachingUnit(models.Model):
@@ -1096,11 +1123,11 @@ Toto schéma definuje strukturu výukového celku a~jeho jednotlivých lekcí po
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{component-diagram.png}}
-	\caption{Komponentní diagram znázorňující tok dat mezi hlavními částmi systému pro~práci s~výukovými plány.}
+	\caption{Komponentní diagram znázorňující tok událostí mezi hlavními částmi systému pro~práci s~výukovými plány.}
 	\label{fig:component-diagram}
 \end{figure}
 
-Tento komponentní diagram znázorňuje hlavní funkční části systému pro~práci s~výukovými plány a~jejich vzájemné propojení. Učitel využívá \texttt{LessonEditor} výukových plánů k~tvorbě a~úpravě hodin. Po~dokončení může plán uložit, což umožní jeho pozdější úpravy nebo jej pomocí komponenty \texttt{PublishLesson} publikovat. Publikované hodiny se~ukládají do~\texttt{CollectionLessons}, což je hlavní úložiště všech dostupných výukových hodin.
+Tento komponentní diagram znázorňuje hlavní funkční části systému pro~práci s~výukovými plány a~jejich vzájemné propojení. Učitel využívá \texttt{LessonEditor} výukových plánů k~tvorbě a~úpravě plánů. Po~dokončení může plán uložit, což umožní jeho pozdější úpravy nebo jej pomocí komponenty \texttt{PublishLesson} publikovat. Publikované hodiny se~ukládají do~\texttt{CollectionLessons}, což je hlavní úložiště všech dostupných výukových hodin.
 
 Studenti a~rodiče mají přístup k~výukovým hodinám prostřednictvím komponenty\break\texttt{ViewSelection}, která jim umožňuje volit mezi dvěma režimy zobrazení~--~\texttt{CalendarView} pro~přehledný kalendářní pohled na~hodiny podle data nebo \texttt{SubjectView}, kde jsou hodiny organizovány podle předmětů. Oba způsoby zobrazují relevantní výukové hodiny uložené\break v~\texttt{CollectionLessons}.
 
@@ -1108,7 +1135,7 @@ Studenti a~rodiče mají přístup k~výukovým hodinám prostřednictvím kompo
 
 \section{Odůvodnění výběru technického zásobníku}
 
-Výběr správného technického zásobníku je zásadním krokem při~návrhu softwaru, který ovlivňuje celý životní cyklus projektu, od~vývoje až po~nasazení a údržbu. Zvolená architektura a technologie přímo ovlivňují flexibilitu, škálovatelnost, výkon a také efektivitu práce vývojového týmu. Důležité je zohlednit nejen technické požadavky, ale také zkušenosti týmu a dostupné zdroje. Tato kapitola se zaměřuje na zdůvodnění volby konkrétního technického zásobníku pro systémy \textit{EDUBO} a \textit{Eduklub~--~plány výuky}.
+Výběr správného technického zásobníku je zásadním krokem při~návrhu softwaru, který ovlivňuje celý životní cyklus projektu, od~vývoje až po~nasazení a údržbu. Zvolená architektura a~technologie přímo ovlivňují flexibilitu, škálovatelnost, výkon a~také efektivitu práce vývojového týmu. Důležité je zohlednit nejen technické požadavky, ale také zkušenosti týmu a~dostupné zdroje. Tato kapitola se zaměřuje na zdůvodnění volby konkrétního technického zásobníku pro systémy \textit{EDUBO} a~\textit{Eduklub~--~plány výuky}.
 
 \subsection{Výběr architektury}
 
@@ -1233,7 +1260,7 @@ Pro správu a~nasazení obou systémů byly využity nástroje NGINX jako reverz
 NGINX byl použit k~optimalizaci síťové komunikace mezi frontendem, backendem a~uživateli.
 
 \needspace{8\baselineskip}
-Hlavní úloha NGINX spočívala v:
+Hlavní úloha NGINX spočívala~v:
 \begin{itemize}
 	\item \textbf{Směrování požadavků:} NGINX přesměrovává API požadavky na~backend a~ostatní požadavky na~frontend, čímž zajišťuje efektivní distribuci zatížení.
 	\item \textbf{Bezpečnostní filtrování:} Chrání aplikace před nežádoucími požadavky a~útoky.
@@ -1257,7 +1284,7 @@ Technický zásobník použitý v~aplikacích \textit{EDUBO} a~\textit{Eduklub~-
 
 \section{Implementace softwaru pro plánování výuky}
 
-Během vývoje \textit{EDUBO} bylo nutné navrhnout a~implementovat robustní systém pro tvorbu a~organizaci výukových plánů. Celý proces byl rozdělen do~dvou iterací, přičemž každá z~nich se zaměřovala na~konkrétní funkcionalitu systému. Mezi hlavní cíle patřilo vytvoření editoru výukových plánů, který umožní učitelům intuitivně sestavovat své plány, dále vyvinout systém pro publikaci výukových hodin, díky kterému budou mít studenti snadný přístup ke~svým rozvrhům a~možnosti exportu výukových plánů do~PDF. Vývoj probíhal ve~spolupráci se~společnostmi DataPLEX Consulting, s.r.o. a~Databig s.r.o., které poskytly odborné konzultace a~zpětnou vazbu k~implementovaným řešením.
+Během vývoje \textit{EDUBO} bylo nutné navrhnout a~implementovat robustní systém pro tvorbu a~organizaci výukových plánů. Celý proces byl rozdělen do~dvou iterací, přičemž každá z~nich se zaměřovala na~konkrétní funkcionalitu systému. Mezi hlavní cíle patřilo vytvoření editoru výukových plánů, který umožní učitelům intuitivně sestavovat své plány, dále vyvinout systém pro publikaci výukových hodin, díky kterému budou mít studenti snadný přístup ke~svým rozvrhům a~možnosti exportu výukových plánů do~PDF. Vývoj probíhal ve~spolupráci se~společnostmi DataPLEX Consulting,~s.r.o. a~Databig~s.r.o., které poskytly odborné konzultace a~zpětnou vazbu k~implementovaným řešením.
 
 \subsection{Vývojový proces a~týmová spolupráce}
 
