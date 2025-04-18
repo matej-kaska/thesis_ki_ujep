@@ -818,7 +818,7 @@ File Volume je úložný prostor pro~soubory, které jsou nahrány do~výukovýc
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{deployment-diagram-2.png}}
-	\caption{Diagram nasazení znázorňující komunikaci přes~TCP/IP protokol aplikace \textit{Eduklub~--~plány výuky}.}
+	\caption{Diagram nasazení znázorňující komunikaci přes~TCP/IP protokol aplikace \mbox{\textit{Eduklub~--~plány výuky}.}}
 	\label{fig:deployment-diagram-2}
 \end{figure}
 
@@ -888,11 +888,11 @@ Tento diagram balíčků zobrazuje strukturu složek webové agregátoru výukov
 		\item \texttt{users}: Obsahuje views specifické pro~správu uživatelů, například autentizaci, registraci a~správu uživatelských profilů.
 	\end{itemize}
 	\item \texttt{serializers}: Obsahuje serializéry, které převádějí data mezi Django modely a~JSON formátem.
-	\item \texttt{tests}: Obsahuje testy pro~jednotlivé části API, které slouží k~ověření funkčnosti~\mbox{implementace.}
+	\item \texttt{tests}: Obsahuje testy pro~jednotlivé části API, které slouží k~ověření funkčnosti~implementace.
 	\item \texttt{backend}: Obsahuje hlavní konfigurační soubory a~nastavení specifické pro~backend aplikace. Může obsahovat například nastavení databáze, middleware nebo bezpečnostní konfigurace.
 	\item \texttt{eduklub}: Tato složka obsahuje modely všech objektů kromě uživatelů.
 	\item \texttt{users}: Složka pro~správu uživatelských účtů a~uživatelských modelů. Obsahuje funkce pro~autentizaci, autorizaci a~správu profilů.
-	\item \texttt{static}: Obsahuje statické soubory potřebné pro~backend, například styly, JavaScript nebo obrázky, které jsou potřebné pro~generování určitých šablon nebo statických zobrazení v~Djangovém prostředí.
+	\item \texttt{static}: Obsahuje statické soubory potřebné pro~backend, například styly, JavaScript nebo obrázky.
 \end{itemize}
 
 \subsection{Databázové schéma aplikace EDUBO}
@@ -1024,7 +1024,7 @@ Další částí modelu je hodnocení výukových plánů, které je reprezentov
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{erd-2.png}}
-	\caption{Entitně-vztahový diagram znázorňující databázovou strukturu aplikace \textit{Eduklub~--~plány výuky}.}
+	\caption{Entitně-vztahový diagram znázorňující databázovou strukturu aplikace \mbox{\textit{Eduklub~--~plány výuky}.}}
 	\label{fig:erd-2}
 \end{figure}
 
@@ -1118,7 +1118,7 @@ Popis důležitých tabulek:
     subject = models.ForeignKey(Subject, on_delete=models.PROTECT, blank=True, null=True)
 \end{lstlisting}
 
-Toto schéma definuje strukturu výukového celku a~jeho jednotlivých lekcí pomocí ORM Django. \texttt{TeachingUnit} reprezentuje výukový celek s~atributy jako název, popis, počet lekcí a~soubor ke~stažení. Každý výukový celek může mít rodičovský celek (\texttt{parent}), což umožňuje vytváření mutací. \texttt{Lesson} představuje jednotlivé lekce a~obsahuje soubor náhledu ve~formátu \texttt{.html}. \texttt{Category} pak slouží k~tematickému zařazení výukových celků. Kategorie mohou být hierarchicky uspořádané pomocí vazby \texttt{parent}, což umožňuje vytvářet nadřazené a~podřazené skupiny.
+Toto schéma definuje strukturu výukového celku a~jeho jednotlivých lekcí pomocí ORM Django. \texttt{TeachingUnit} reprezentuje výukový celek s~atributy jako název, popis, počet lekcí a~soubor ke~stažení. Každý výukový celek může mít rodičovský celek (\texttt{parent}), což umožňuje vytváření mutací. \texttt{Lesson} představuje jednotlivé lekce a~obsahuje soubor náhledu ve~formátu HTML. \texttt{Category} pak slouží k~tematickému zařazení výukových celků. Kategorie mohou být hierarchicky uspořádané pomocí vazby \texttt{parent}, což umožňuje vytvářet nadřazené a~podřazené skupiny.
 
 \begin{figure}[H]
 	\centering
