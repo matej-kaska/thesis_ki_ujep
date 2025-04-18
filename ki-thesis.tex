@@ -1132,7 +1132,6 @@ Tento komponentní diagram znázorňuje hlavní funkční části systému pro~p
 Studenti a~rodiče mají přístup k~výukovým hodinám prostřednictvím komponenty\break\texttt{ViewSelection}, která jim umožňuje volit mezi dvěma režimy zobrazení~--~\texttt{CalendarView} pro~přehledný kalendářní pohled na~hodiny podle data nebo \texttt{SubjectView}, kde jsou hodiny organizovány podle předmětů. Oba způsoby zobrazují relevantní výukové hodiny uložené\break v~\texttt{CollectionLessons}.
 
 
-
 \section{Odůvodnění výběru technického zásobníku}
 
 Výběr správného technického zásobníku je zásadním krokem při~návrhu softwaru, který ovlivňuje celý životní cyklus projektu, od~vývoje až po~nasazení a údržbu. Zvolená architektura a~technologie přímo ovlivňují flexibilitu, škálovatelnost, výkon a~také efektivitu práce vývojového týmu. Důležité je zohlednit nejen technické požadavky, ale také zkušenosti týmu a~dostupné zdroje. Tato kapitola se zaměřuje na zdůvodnění volby konkrétního technického zásobníku pro systémy \textit{EDUBO} a~\textit{Eduklub~--~plány výuky}.
@@ -1143,7 +1142,7 @@ Při návrhu architektury softwaru byly zvažovány různé přístupy, včetně
 
 Monolitická architektura umožnila integrovat všechny části aplikace do~jednoho repozitáře, což zjednodušilo správu kódu i~týmovou spolupráci. Všechny komponenty systému běží společně, což minimalizuje složitost při komunikaci mezi jednotlivými částmi aplikace, jako je frontend, backend a~databáze.
 
-\subsubsection{Frontend}
+\subsection{Frontend}
 
 Pro~oba projekty \textit{EDUBO} a~\textit{Eduklub~--~plány výuky}, byl jako frontendová technologie zvolen React, což je populární framework pro~tvorbu uživatelských rozhraní. Tento výběr byl založen především na~zkušenostech týmu a~požadavcích na~rychlé a~dynamické uživatelské rozhraní.
 
@@ -1163,7 +1162,7 @@ Během vývoje se~ukázalo, že Vite výrazně urychluje práci s~kódem, což v
 
 React byl nasazen jako build (sestavená aplikace), který poskytuje optimalizovaný a~produkční kód pro~rychlé načítání aplikace v~prohlížeči. Tento build byl dále servírován pomocí reverzního proxy serveru NGINX, což zajišťovalo rychlou a~bezpečnou distribuci frontendového kódu uživatelům.
 
-\subsubsection{Backend}
+\subsection{Backend}
 
 Backendová část aplikací \textit{EDUBO} a~\textit{Eduklub~--~plány výuky} byla navržena s~ohledem na~rozdílné požadavky obou projektů, což vedlo k~použití různých frameworků. Zatímco \textit{EDUBO} bylo vytvořeno pomocí mikro-frameworku Flask, pro~\textit{Eduklub~--~plány výuky} bylo zvoleno robustnější Django. Tento rozdíl reflektuje specifické potřeby každého projektu a~zkušenosti získané během vývoje.
 
@@ -1194,7 +1193,7 @@ Flask byl vhodnou volbou pro~rychlý začátek vývoje, avšak při nárůstu ko
 Pro~\textit{Eduklub~--~plány výuky} bylo zvoleno Django, což je plnohodnotný framework v~Pythonu, který nabízí rozsáhlé vestavěné funkce a~jasnou strukturu. Django se osvědčilo zejména u~projektů, které vyžadují vyšší míru komplexnosti a~robustní řešení.
 
 \needspace{7\baselineskip}
-Mezi klíčové výhody patřily:
+Mezi klíčové výhody Djanga patří:
 \begin{itemize}
 	\item \textbf{Komplexní nástroje:} Vestavěná podpora pro~migrace, autentizace, správu uživatelských práv a~ORM výrazně zjednodušila vývoj.
 	\item \textbf{Standardizace:} Jasná a~přehledná struktura projektu usnadnila spolupráci v~týmu a~přehlednost kódu.
@@ -1211,6 +1210,8 @@ Na~druhou stranu, Django má i~své nevýhody:
 
 Django bylo jasnou volbou pro~tuto platformu, díky své schopnosti efektivně řešit komplexní potřeby projektu, což by s~Flaskem nebylo možné bez výrazně vyššího úsilí.
 
+\newpage
+
 \subsubsection{Srovnání Flasku a Djanga}
 
 Zatímco Flask je ideální pro~menší aplikace, kde je potřeba rychle začít vývoj a~přizpůsobit strukturu projektu, Django vyniká u~větších projektů svou robustností a~bohatou sadou vestavěných nástrojů. Obě technologie přinášejí výhody v~závislosti na~konkrétních požadavcích projektu a~zkušenostech vývojového týmu.
@@ -1221,7 +1222,7 @@ Oba backendy byly nasazeny jako samostatné služby v~kontejnerech pomocí Docke
 
 Pro databázovou vrstvu byly v~projektech \textit{EDUBO} a~\textit{Eduklub~--~plány výuky} použity různé přístupy reflektující jejich specifické požadavky a~potřeby. V~systému \textit{EDUBO} byla zvolena MongoDB, zatímco ve~webovém agregátoru byla použita relační databáze PostgreSQL.
 
-\subsection{EDUBO: MongoDB}
+\subsubsection{EDUBO: MongoDB}
 
 MongoDB byla původně vybrána díky své flexibilitě při ukládání nestrukturovaných dat. Její schopnost pracovat s~dokumenty ve~formátu JSON, které jsou interně ukládány ve~formátu BSON (binární JSON), umožnila snadné ukládání nestrukturovaných dat z~frontendu a~efektivnější práci s~daty díky optimalizovanému ukládání a~rychlému přístupu.
 
