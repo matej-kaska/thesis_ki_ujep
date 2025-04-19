@@ -1285,7 +1285,7 @@ Technický zásobník použitý v~aplikacích \textit{EDUBO} a~\textit{Eduklub~-
 
 \section{Implementace softwaru pro plánování výuky}
 
-Během vývoje \textit{EDUBO} bylo nutné navrhnout a~implementovat robustní systém pro tvorbu a~organizaci výukových plánů. Celý proces byl rozdělen do~dvou iterací, přičemž každá z~nich se zaměřovala na~konkrétní funkcionalitu systému. Mezi hlavní cíle patřilo vytvoření editoru výukových plánů, který umožní učitelům intuitivně sestavovat své plány, dále vyvinout systém pro publikaci výukových hodin, díky kterému budou mít studenti snadný přístup ke~svým rozvrhům a~možnosti exportu výukových plánů do~PDF. Vývoj probíhal ve~spolupráci se~společnostmi DataPLEX Consulting,~s.r.o. a~Databig~s.r.o., které poskytly odborné konzultace a~zpětnou vazbu k~implementovaným řešením.
+Během vývoje \textit{EDUBO} bylo nutné navrhnout a~implementovat robustní systém pro tvorbu a~organizaci výukových plánů. Celý proces byl rozdělen do~dvou iterací, přičemž každá z~nich se zaměřovala na~konkrétní funkcionalitu systému. Mezi hlavní cíle patřilo vytvoření editoru výukových plánů, který umožní učitelům intuitivně sestavovat své plány, dále vyvinout systém pro publikaci výukových hodin, díky kterému budou mít studenti snadný přístup ke~svým rozvrhům a~možnosti exportu výukových plánů do~PDF. Vývoj probíhal ve~spolupráci se~společnostmi DataPLEX~Consulting,~s.r.o. a~Databig~s.r.o., které poskytly odborné konzultace a~zpětnou vazbu k~implementovaným řešením.
 
 \subsection{Vývojový proces a~týmová spolupráce}
 
@@ -1302,9 +1302,9 @@ Na~vývoji se podílel tým studentů Univerzity~Jana~Evangelisty~Purkyně a~Gym
 	\item Na~backendu pracoval kromě mě také \textbf{Lukáš Jurásek}, kterého ve~druhé iteraci nahradil \textbf{Jakub Kopecký} jako hlavní backend programátor.
 \end{itemize}
 
-Komunikace v~týmu probíhala prostřednictvím \textbf{Discordu}, kde se konaly pravidelné \textbf{stand-up meetingy}, během nichž se hodnotil pokrok a~plánovala se následující iterace. Pro řízení úkolů byla využívána \textbf{Kanban tabule v~ClickUpu}, což umožňovalo efektivní organizaci práce.
+Komunikace v~týmu probíhala prostřednictvím Discordu, kde se konaly pravidelné stand-up meetingy, během nichž se hodnotil pokrok a~plánovala se následující iterace. Pro řízení úkolů byla využívána Kanban tabule v~ClickUpu, což umožňovalo efektivní organizaci práce.
 
-Pro verzování kódu byl využíván software \textbf{Git} ve~spojení s~\textbf{GitHubem}, kde jsme dodržovali standardizované pojmenovávání větví a~workflow zahrnující pull requesty a~issues. Každá nová funkcionalita byla vyvíjena v~samostatné větvi (např.~\texttt{feature/xxx}, \texttt{fix/xxx}), která byla následně schválena pomocí \textbf{code review} před sloučením do~hlavní vývojové větve.
+Pro verzování kódu byl využíván software Git ve~spojení s~GitHubem, kde jsme dodržovali standardizované pojmenovávání větví a~workflow zahrnující pull requesty a~issues. Každá nová funkcionalita byla vyvíjena v~samostatné větvi (např.~\texttt{feature/xxx}, \texttt{fix/xxx}), která byla následně schválena pomocí code review před sloučením do~hlavní vývojové větve.
 
 \subsection{Návrh uživatelského rozhraní ve~Figma}
 
@@ -1317,7 +1317,7 @@ Vývoj uživatelského rozhraní aplikace začal ručně kresleným wireframem (
 	\label{fig:edubo-navrh-1}
 \end{figure}
 
-Na~základě tohoto návrhu vznikla první digitální verze v~aplikaci \textbf{Figma}, kterou vytvořila \textbf{Kateřina Pazderová}. Tento návrh se již více podobal finálnímu vzhledu aplikace, ale stále zde chyběla definitivní vizuální identita~--~například nebyla určena primární barva uživatelského rozhraní. V~tomto návrhu měly typy aktivit kruhový design a~zahrnoval několik funkcí, které nakonec nebyly součástí editoru, ale některé z~nich našly své uplatnění v~jiných částech aplikace. Mezi tyto komponenty patřilo například vyhledávání, přidělování hodin, historie použití a~funkce pro kontrolu plánu a~typ plánu.
+Na~základě tohoto návrhu vznikla první digitální verze v~aplikaci Figma, kterou vytvořila \textbf{Kateřina Pazderová}. Tento návrh se již více podobal finálnímu vzhledu aplikace, ale stále zde chyběla definitivní vizuální identita~--~například nebyla určena primární barva uživatelského rozhraní. V~tomto návrhu měly typy aktivit kruhový design a~zahrnoval několik funkcí, které nakonec nebyly součástí editoru, ale některé z~nich našly své uplatnění v~jiných částech aplikace. Mezi tyto komponenty patřilo například vyhledávání, přidělování hodin, historie použití a~funkce pro kontrolu plánu a~typ plánu.
 
 \begin{figure}[H]
 	\centering
@@ -1326,7 +1326,7 @@ Na~základě tohoto návrhu vznikla první digitální verze v~aplikaci \textbf{
 	\label{fig:edubo-navrh-2}
 \end{figure}
 
-Třetí návrh ve~Figma již téměř odpovídal finální podobě aplikace. V~této fázi byla určena hlavní barva uživatelského rozhraní a~vznikl přesný návrh plátna editoru. Tento návrh sloužil jako základ pro implementaci grafického rozhraní v~samotné aplikaci.
+Třetí návrh v~aplikaci Figma již téměř odpovídal finální podobě aplikace. V~této fázi byla určena hlavní barva uživatelského rozhraní a~vznikl přesný návrh plátna editoru. Tento návrh sloužil jako základ pro implementaci grafického rozhraní v~samotné aplikaci.
 
 \begin{figure}[H]
 	\centering
@@ -1344,33 +1344,33 @@ Třetí návrh ve~Figma již téměř odpovídal finální podobě aplikace. V~t
 	\label{fig:use-case-diagram}
 \end{figure}
 
-Tento \textit{Use case diagram} popisuje hlavní případy užití (\textit{use cases}) pro tři různé typy uživatelů systému: učitele, studenta a~rodiče. Diagram zobrazuje hlavní způsoby, jak bude systém využíván uživateli. Tyto případy zahrnují správu tříd, výukových jednotek, registraci uživatelů pomocí klíčů a~možnost hodnocení hodin.
+Tento \textit{use case diagram} popisuje hlavní případy užití (\textit{use cases}) pro tři různé typy uživatelů systému: učitele, studenta a~rodiče. Diagram zobrazuje hlavní způsoby, jak bude systém využíván uživateli. Tyto případy zahrnují správu tříd, výukových jednotek, registraci uživatelů pomocí klíčů a~možnost hodnocení hodin.
 
 \textbf{Teacher (Učitel):}
 \begin{itemize}
-	\item \textbf{Manage Classes, Subjects \& Teaching Units}: Učitel může spravovat třídy, předměty a~výukové jednotky v~systému.
-	\item \textbf{Edit Lessons}: Učitel má možnost upravovat hodiny. Tento případ užití je propojen s~dalšími dvěma funkcemi:
+	\item \textbf{Manage Classes, Subjects \& Teaching Units}:~Učitel může spravovat třídy, předměty a~výukové jednotky v~systému.
+	\item \textbf{Edit Lessons}:~Učitel má možnost upravovat hodiny. Tento případ užití je propojen s~dalšími dvěma funkcemi:
 	\begin{itemize}
-		\item \textbf{Publish Lessons}: Učitel může publikovat hodiny jako volitelné rozšíření úprav hodin.
-		\item \textbf{Print Lessons in PDF}: Učitel má možnost vytisknout hodiny ve~formátu PDF jako volitelné rozšíření úprav hodin.
+		\item \textbf{Publish Lessons}:~Učitel může publikovat hodiny jako volitelné rozšíření úprav hodin.
+		\item \textbf{Print Lessons in PDF}:~Učitel má možnost vytisknout hodiny ve~formátu PDF jako volitelné rozšíření úprav hodin.
 	\end{itemize}
-	\item \textbf{Generate Student Keys}: Učitel může generovat registrační klíče pro studenty, které umožňují studentům přihlášení do systému.
+	\item \textbf{Generate Student Keys}:~Učitel může generovat registrační klíče pro studenty, které umožňují studentům přihlášení do systému.
 \end{itemize}
 
 \vspace{1em}
 \textbf{Student (Student):}
 \begin{itemize}
-	\item \textbf{Register with Student Key}: Student se může zaregistrovat do systému pomocí registračního klíče, který obdrží od učitele.
-	\item \textbf{View Lessons}: Student má přístup k~prohlížení publikovaných hodin.
-	\item \textbf{Rate Lessons}: Student může hodnotit hodiny.
-	\item \textbf{View Parent Keys}: Student může získat klíče pro rodiče, což jim umožní přístup k~zobrazení hodin.
+	\item \textbf{Register with Student Key}:~Student se může zaregistrovat do systému pomocí registračního klíče, který obdrží od učitele.
+	\item \textbf{View Lessons}:~Student má přístup k~prohlížení publikovaných hodin.
+	\item \textbf{Rate Lessons}:~Student může hodnotit hodiny.
+	\item \textbf{View Parent Keys}:~Student může získat klíče pro rodiče, což jim umožní přístup k~zobrazení hodin.
 \end{itemize}
 
 \vspace{1em}
 \textbf{Parent (Rodič):}
 \begin{itemize}
-	\item \textbf{Register with Parent Key}: Rodič se může zaregistrovat do systému pomocí klíče, který obdržel od studenta.
-	\item \textbf{View Lessons}: Rodič může zobrazit publikované hodiny, které byly přiřazeny jejich studentovi, což jim umožňuje sledovat průběh výuky.
+	\item \textbf{Register with Parent Key}:~Rodič se může zaregistrovat do systému pomocí klíče, který obdržel od studenta.
+	\item \textbf{View Lessons}:~Rodič může zobrazit publikované hodiny, které byly přiřazeny jejich studentovi, což jim umožňuje sledovat průběh výuky.
 \end{itemize}
 
 \begin{figure}[H]
@@ -1380,7 +1380,9 @@ Tento \textit{Use case diagram} popisuje hlavní případy užití (\textit{use 
 	\label{fig:activity-diagram}
 \end{figure}
 
-Tento \textit{diagram aktivit} ilustruje proces tvorby hodiny v~aplikaci \textit{EDUBO}. Diagram zobrazuje jednotlivé kroky od vytvoření hodiny až po publikaci hodiny pro studenty. Proces zahrnuje nastavení základních parametrů hodiny, přidání aktivit a~úpravy jejich detailů, a~nakonec uložení a~publikaci vytvořené hodiny.
+\newpage
+
+Tento diagram aktivit ilustruje proces tvorby hodiny v~aplikaci \textit{EDUBO}. Diagram zobrazuje jednotlivé kroky od vytvoření hodiny až po publikaci hodiny pro studenty. Proces zahrnuje nastavení základních parametrů hodiny, přidání aktivit a~úpravy jejich detailů, a~nakonec uložení a~publikaci vytvořené hodiny.
 
 \begin{enumerate}
 	\item \textbf{Vytvoření hodiny:}
@@ -1399,7 +1401,7 @@ Tento \textit{diagram aktivit} ilustruje proces tvorby hodiny v~aplikaci \textit
 	\item \textbf{Přidávání aktivit do hodiny:}
 	\begin{itemize}
 		\item Uživatel vybere typ aktivity z~levého menu \textit{Choose activity type in the left menu}.
-		\item Uživatel vybranou aktivitu přetáhne na~plátno pomocí drag and drop interakce \textit{Drag activity to the canvas}.
+		\item Uživatel vybranou aktivitu přetáhne na~plátno pomocí drag and drop interakce\break\textit{Drag activity to the canvas}.
 		\item Uživatel upraví detaily aktivity, jako je název, popis, délka, pomůcky, soubory, odkazy, organizační formy a~formy aktivity \textit{Set Name, Description, Length, Gadgets, Files, URLs, Organisational Form, Form of Activity}.
 		\item Tento krok se opakuje, dokud hodina není kompletně zaplněná.
 	\end{itemize}
@@ -1408,7 +1410,7 @@ Tento \textit{diagram aktivit} ilustruje proces tvorby hodiny v~aplikaci \textit
 	\begin{itemize}
 		\item Po dokončení všech úprav uživatel hodinu uloží \textit{Save the lesson}.
 		\item Hodina je připravena ve~formátu PDF k~tisku pomocí akce \textit{Print PDF of the lesson}.
-		\item Nakonec uživatel přejde do menu a~publikuje hodinu pro studenty pomocí akce \textit{Go to menu and publish the lesson}.
+		\item Nakonec uživatel přejde do menu a~publikuje hodinu pro studenty pomocí akce\break\textit{Go to menu and publish the lesson}.
 	\end{itemize}
 \end{enumerate}
 
@@ -1423,9 +1425,9 @@ Tento \textit{diagram aktivit} ilustruje proces tvorby hodiny v~aplikaci \textit
 
 Editor výukových plánů je klíčovým prvkem softwaru pro plánování výuky, který učitelům umožňuje intuitivně sestavit strukturovaný plán hodiny. Uživatelské rozhraní editoru je přehledné a~usnadňuje práci s~výukovými aktivitami. V~horní části se nachází navigační lišta s~rozbalovacími seznamy, které umožňují manipulaci s~plánem výuky, export do~PDF nebo úpravu délky hodiny.
 
-Na levé straně rozhraní jsou k~dispozici různé typy aktivit, mezi ně patří evokace, hodnocení, objevování, zdroje, procvičování, shrnutí, výklad a~zpětná vazba. Každý z~těchto typů obsahuje další specifické aktivity, které byly vytvořeny ve~spolupráci s~Pedagogickou fakultou Univerzity Karlovy pod vedením proděkana doc. Antonína Jančaříka. K~jednotlivým aktivitám jsou připojena informační tlačítka, která učitele přesměrují na~podrobné metodické materiály s~návody na~jejich efektivní využití ve~výuce.
+Na levé straně rozhraní jsou k~dispozici různé typy aktivit, mezi ně patří evokace, hodnocení, objevování, zdroje, procvičování, shrnutí, výklad a~zpětná vazba. Každý z~těchto typů obsahuje další specifické aktivity, které byly vytvořeny ve~spolupráci s~Pedagogickou fakultou Univerzity Karlovy pod vedením proděkana doc.~Antonína Jančaříka. K~jednotlivým aktivitám jsou připojena informační tlačítka, která učitele přesměrují na~podrobné metodické materiály s~návody na~jejich efektivní využití ve~výuce.
 
-Střední část editoru tvoří hlavní plátno, na~kterém učitel vytváří časovou strukturu výuky. Plátno je rozděleno podle časových bloků, do~nichž lze pomocí \textit{drag and drop} interakce přetahovat vybrané aktivity. Každou aktivitu lze následně editovat, upravit její název, popis či délku a~přidat k~ní potřebné pomůcky, soubory nebo odkazy. Důležitou součástí je také možnost nastavení organizační formy, tedy zda bude aktivita realizována v~rámci celé třídy, ve~skupinách, ve~dvojicích nebo individuálně. Kromě toho je možné určit formu činnosti, například mluvený projev, interakci, čtení, psaní, experiment nebo poslech.
+Střední část editoru tvoří hlavní plátno, na~kterém učitel vytváří časovou strukturu výuky. Plátno je rozděleno podle časových bloků, do~nichž lze pomocí drag and drop interakce přetahovat vybrané aktivity. Každou aktivitu lze následně editovat, upravit její název, popis či délku a~přidat k~ní potřebné pomůcky, soubory nebo odkazy. Důležitou součástí je také možnost nastavení organizační formy, tedy zda bude aktivita realizována v~rámci celé třídy, ve~skupinách, ve~dvojicích nebo individuálně. Kromě toho je možné určit formu činnosti, například mluvený projev, interakci, čtení, psaní, experiment nebo poslech.
 
 Kromě hlavního plátna obsahuje editor i~speciální sekce pro~aktivity, které mají proběhnout před výukou nebo po~ní. Tento prvek slouží například k~evidenci úkolů, které si žáci mají připravit před hodinou nebo k~záznamu reflexe po~jejím skončení. Editor také podporuje paralelní aktivity, což znamená, že v~jednom časovém úseku mohou probíhat různé činnosti současně. Tato funkce je užitečná například při dělení žáků do~skupin, kdy každá skupina pracuje na~odlišných úkolech.
 
@@ -1440,11 +1442,11 @@ Další důležitou součástí editoru je sekce věnovaná cílům a~výstupům
 
 \newpage
 
-Tento komponentní diagram znázorňuje strukturu hlavních React komponent v~Editoru výukových plánů. Nejvyšší úroveň tvoří globální poskytovatelé (Providers), kteří zajišťují sdílení stavů a~funkcionalit napříč aplikací. \texttt{Redux} spravuje globální stav aplikace, \texttt{ErrorBoundary} se stará o~zachytávání chyb, zatímco \texttt{Snackbar} a~\texttt{Modal} poskytují uživatelské notifikace a~modální okna. \texttt{Router} řídí navigaci mezi stránkami a~\texttt{ProtectedRoute} zajišťuje, že k~editoru mají přístup pouze oprávnění uživatelé.
+Tento komponentní diagram znázorňuje strukturu hlavních React komponent v~editoru výukových plánů. Nejvyšší úroveň tvoří globální poskytovatelé (Providers), kteří zajišťují sdílení stavů a~funkcionalit napříč aplikací. \texttt{Redux} spravuje globální stav aplikace, \texttt{ErrorBoundary} se stará o~zachytávání chyb, zatímco \texttt{Snackbar} a~\texttt{Modal} poskytují uživatelské notifikace a~modální okna. \texttt{Router} řídí navigaci mezi stránkami a~\texttt{ProtectedRoute} zajišťuje, že k~editoru mají přístup pouze oprávnění uživatelé.
 
 Jádro editoru tvoří komponenta \texttt{Editor}, která spravuje interaktivní prvky uživatelského rozhraní. Pro správu typu aktivit je využita komponenta \texttt{ActivityTypes}. \texttt{DragDropContext} se stará o~přetahování a~organizaci prvků. Navigační menu je implementováno v~komponentě \texttt{Nav}.
 
-Další klíčové komponenty zahrnují \texttt{LessonWindow}, které představuje hlavní pracovní prostor editoru. V~něm jsou obsaženy komponenty \texttt{LessonHeader} (obsahující název hodiny, cíle a~výstupy), \texttt{Lesson} (hlavní struktura hodiny), \texttt{Accessories} (pomocné prvky, jako jsou soubory a~pomůcky) a~\texttt{Notes} (sekce pro dodatečné poznámky učitele). Komponenta \texttt{ActivityWidget} obsahuje jednotlivé výukové aktivity, které lze pomocí \textit{drag and drop} interakce přetahovat do~plátna editoru, kde jsou následně organizovány podle časové osy výukového plánu.
+Další klíčové komponenty zahrnují \texttt{LessonWindow}, které představuje hlavní pracovní prostor editoru. V~něm jsou obsaženy komponenty \texttt{LessonHeader} (obsahující název hodiny, cíle a~výstupy), \texttt{Lesson} (hlavní struktura plátna), \texttt{Accessories} (vysouvací okno s~výčtem pomůcek použitých v~plánu) a~\texttt{Notes} (sekce pro dodatečné poznámky učitele). Komponenta \texttt{ActivityWidget} obsahuje jednotlivé výukové aktivity, které lze pomocí drag and drop interakce přetahovat do~plátna editoru, kde jsou následně organizovány podle časové osy výukového plánu.
 
 V~dalších diagramových zobrazeních budou společné komponenty, jako jsou \texttt{Redux},\break\texttt{ErrorBoundary}, \texttt{Router} a~další globální poskytovatelé, vyjmuty, protože tvoří základní infrastrukturu celé aplikace a~nejsou specifické pouze pro~editor. Důraz bude kladen na~detailnější rozdělení jednotlivých částí aplikace dle jejich konkrétní funkcionality.
 
@@ -1571,6 +1573,8 @@ Uživatelské menu poskytuje pedagogům správu a~publikaci výukových plánů.
 
 Uživatelé mají přístup k~seznamům tříd, předmětů, výukových celků a~jednotlivých hodin, přičemž všechny tyto položky mohou přidávat, upravovat a~mazat. Pro~pohodlnou organizaci obsahu je možné využít drag and drop interakce, který usnadňuje řazení výukových položek. Při vytváření třídy lze vybrat z~již existujících tříd a~automaticky se~tak uživatel přiřadí do~dané třídy. V~rámci editace předmětu může pedagog přiřadit již přednastavené kurikulární výstupy nebo nahrát vlastní. Výukové celky je možné doplnit o~poznámky.
 
+\newpage
+
 V~pravé části menu se~nachází informace o~konkrétní hodině spolu s~možností její publikace. Uživatel může nastavit čas a~datum zveřejnění, po~kterém se~daná hodina zobrazí v~uživatelském rozhraní studentů.
 
 \begin{figure}[H]
@@ -1623,13 +1627,15 @@ const modalAddLessonCallback = async (oldValue: string) => {
 };
 \end{lstlisting}
 
-Tato funkce je určena k~vytvoření nové výukové lekce. Jejím parametrem je řetězec představující název nové hodiny. Na začátku probíhá kontrola, zda zadaný název splňuje všechny potřebné podmínky, jako je nepřítomnost prázdného textu nebo překročení maximální délky. Následně se vytvoří kopie uživatelských dat, která je připravena pro další úpravy.
+Tato funkce je určena k~vytvoření nového výukového plánu. Jejím parametrem je řetězec představující název nového plánu. Na začátku probíhá kontrola, zda zadaný název splňuje všechny potřebné podmínky, jako je prázdný název nebo překročení maximální délky. Následně se vytvoří kopie uživatelských dat, která je připravena pro další úpravy.
 
-Funkce dále získá aktivní indexy, tedy index aktuálně vybrané třídy, předmětu a~výukového celku. Na základě těchto indexů se vytvoří reference na příslušné pole výukových lekcí, kde bude nová výuková lekce přidána. Před přidáním se zkontroluje, zda již v~datech neexistuje výuková lekce se~stejným názvem, aby nedošlo k~duplikaci.
+Funkce dále získá aktivní indexy, tedy index aktuálně vybrané třídy, předmětu a~výukového celku. Na základě těchto indexů se vytvoří reference na příslušné pole výukových plánů, kde bude nový výukový plán přidán. Před přidáním se zkontroluje, zda již v~datech neexistuje výukový plán se~stejným názvem, aby nedošlo k~duplicitě.
 
-Pokud je kontrola úspěšná, vytvoří se objekt nové výukové lekce s~unikátním identifikátorem, názvem a~výchozími hodnotami pro další vlastnosti. Tento objekt je následně přidán do~pole výukových lekcí.
+\newpage
 
-Na závěr funkce vytvoří \texttt{Promise} (JavaScriptový příslib), který zajistí paralelní odeslání dvou požadavků na backend. První požadavek aktualizuje uživatelská data v~databázi, zatímco druhý vytvoří novou instanci hodiny v~databázi. Tento postup zajišťuje synchronizaci mezi lokálními daty a~databází a~umožňuje správnou funkčnost aplikace.
+Pokud je kontrola úspěšná, vytvoří se objekt nového výukového plánu s~unikátním identifikátorem, názvem a~výchozími hodnotami pro další vlastnosti. Tento objekt je následně přidán do~pole výukových plánů.
+
+Na závěr funkce vytvoří \texttt{Promise} (JavaScriptový příslib), který zajistí paralelní odeslání dvou požadavků na backend. První požadavek aktualizuje uživatelská data v~databázi, zatímco druhý vytvoří novou instanci výukového plánu v~databázi. Tento postup zajišťuje synchronizaci mezi lokálními daty a~databází a~umožňuje správnou funkčnost aplikace.
 
 \subsubsection{Uživatelské rozhraní studenta}
 
@@ -1641,6 +1647,8 @@ Uživatelské rozhraní studenta je navrženo tak, aby umožňovalo snadný př�
 	\caption{Mobilní zobrazení aplikace \textit{EDUBO} s~náhledem na~kalendář studenta.}
 	\label{fig:edubo-5}
 \end{figure}
+
+\newpage
 
 V~zobrazení \textbf{Kalendář} se zobrazují všechny naplánované výukové hodiny pro vybraný den. Každá hodina obsahuje informace o~předmětu, čase, vyučujícím a~tematickém zaměření výukové hodiny. Studenti si mohou přepínat mezi jednotlivými dny pomocí navigačních tlačítek nebo otevřít kalendář a~zvolit libovolné datum, pro které chtějí zobrazit výuku.
 
@@ -1660,7 +1668,7 @@ Zobrazení \textbf{Předměty} poskytuje přehled všech předmětů, ke~kterým
 	\label{fig:edubo-7}
 \end{figure}
 
-Zobrazení výukové lekce poskytuje studentům přehledný a~interaktivní způsob, jak se seznámit s~výukovým plánem dané výukové lekce. V~horní části okna se nachází název výukové lekce, její cíle a~očekávané výstupy. Tyto informace umožňují studentům pochopit hlavní zaměření výukové lekce a~to, co se očekává, že se během ní naučí.
+Zobrazení výukové lekce poskytuje studentům přehledný a~interaktivní způsob, jak se seznámit s~výukovým plánem dané výukové lekce. V~horní části okna se nachází název výukové lekce, její cíle a~očekávané kurikulární výstupy. Tyto informace umožňují studentům pochopit hlavní zaměření výukové lekce a~to, co se očekává, že se během ní naučí.
 
 Pod tímto úvodním blokem se nachází samotný časový plán výukové lekce. Struktura je rozdělena do~tří částí: \textbf{Před hodinou}, kde se nacházejí aktivity určené k~přípravě před výukou, \textbf{Samotná hodina}, obsahující všechny naplánované činnosti, a~\textbf{Po hodině}, která zahrnuje následné aktivity k~upevnění učiva. Aktivity jsou vizuálně rozděleny podle délky trvání a~po kliknutí na~konkrétní aktivitu se rozbalí její detailní popis, včetně pomůcek, přiložených souborů a~odkazů na~online zdroje.
 
@@ -1673,9 +1681,9 @@ Během vývoje webového agregátoru výukových plánů bylo nutné navrhnout a
 
 \subsection{Vývojový proces a týmová spolupráce}
 
-Třetí iterace projektu byla zaměřena na~vývoj webového agregátoru výukových plánů, který umožňuje učitelům sdílet a~spravovat výukové materiály. Tato část vývoje probíhala pod vedením projektového manažera Lukáše Polidara, který měl na~starosti organizaci práce, komunikaci se~stakeholdery a~koordinaci vývojového týmu. Roli Scrum mastera jsem v~rámci týmu zastával já. Byl jsem zodpovědný za~efektivní fungování týmu podle agilní metodiky Scrum, vedení sprintů a~dohled nad~dodržováním vývojového postupu.
+Třetí iterace projektu byla zaměřena na~vývoj webového agregátoru výukových plánů, který umožňuje učitelům sdílet a~spravovat výukové materiály. Tato část vývoje probíhala pod vedením projektového manažera \textbf{Lukáše Polidara}, který měl na~starosti organizaci práce, komunikaci se~stakeholdery a~koordinaci vývojového týmu. Roli Scrum mastera jsem v~rámci týmu zastával já. Byl jsem zodpovědný za~efektivní fungování týmu podle agilní metodiky Scrum, vedení sprintů a~dohled nad~dodržováním vývojového postupu.
 
-Hlavní frontendový vývoj vedl Lukáš Priban, který koordinoval práci na~uživatelském rozhraní aplikace. Spolu s~ním na~frontendu pracovali Andrej Dunda, Vlasta Michalcová a~Tomáš Svoboda, který měl zároveň na~starosti testování aplikace. Backendovou část vývoje měl na~starosti hlavní backend programátor Jakub Kopecký, který zodpovídal za~návrh a~implementaci aplikační logiky a~komunikaci s~databází. Na~rozdíl od~předchozích iterací nebyl UI/UX návrh (návrh uživatelského rozhraní a~uživatelského zážitku) zpracován interně, ale byl vytvořen UI/UX designérem společnosti Mr.~Cloud~s.r.o., který připravil návrh uživatelského rozhraní ve~Figma včetně funkčního prototypu.
+Hlavní frontendový vývoj vedl \textbf{Lukáš Priban}, který koordinoval práci na~uživatelském rozhraní aplikace. Spolu s~ním na~frontendu pracovali \textbf{Andrej Dunda}, \textbf{Vlasta Michalcová} a~\textbf{Tomáš Svoboda}, který měl zároveň na~starosti testování aplikace. Backendovou část vývoje měl na~starosti hlavní backend programátor \textbf{Jakub Kopecký}, který zodpovídal za~návrh a~implementaci aplikační logiky a~komunikaci s~databází. Na~rozdíl od~předchozích iterací nebyl UI/UX návrh (návrh uživatelského rozhraní a~uživatelského zážitku) zpracován interně, ale byl vytvořen UI/UX designérem společnosti Mr.~Cloud~s.r.o., který připravil návrh uživatelského rozhraní ve~Figma včetně funkčního prototypu.
 
 Metodika vývoje, komunikace a~správa verzí zůstaly stejné jako v~předchozích iteracích. Hlavním nástrojem pro komunikaci byl Discord, kde probíhaly pravidelné stand-up meetingy, hodnotící pokrok a~plánující další kroky. Pro řízení úkolů a~sledování postupu práce byla využívána Kanban tabule v~ClickUpu. Verzování kódu probíhalo pomocí softwaru Git na~platformě GitHub, kde bylo dodržováno standardizované pojmenovávání větví, pull requesty a~code review.
 
@@ -1690,7 +1698,7 @@ Přestože návrh ve~Figma tvořil pevný základ, výsledná aplikace není ide
 \begin{figure}[H]
 	\centering
 	\resizebox{16cm}{!}{\includegraphics{eduklub-navrh-1.png}}
-	\caption{Dokumentace návrhu uživatelského rozhraní v~aplikaci Figma pro~\textit{Eduklub~--~plány výuky}.}
+	\caption{Dokumentace návrhu uživatelského rozhraní v~aplikaci Figma\break pro~\textit{Eduklub~--~plány výuky}.}
 	\label{fig:eduklub-navrh-1}
 \end{figure}
 
@@ -1707,6 +1715,8 @@ Domovská stránka webového agregátoru výukových plánů slouží jako hlavn
 
 Pro zpřesnění hledání je k~dispozici několik filtrů, mezi které patří předmět, stupeň vzdělávání (1.~stupeň, 2.~stupeň, nižší gymnázium, vyšší gymnázium a~střední škola), ročník, jazyk, hodnocení (podle počtu hvězdiček 0--5) a~certifikace, která označuje výukové celky schválené pedagogy z~Univerzity Karlovy. Tyto filtry umožňují snadnější orientaci v~obsahu a~pomáhají uživatelům rychleji najít relevantní materiály.
 
+\newpage
+
 Pod vyhledávací sekcí se nachází oblast s~doporučenými výukovými celky. Administrátor má možnost ručně označit konkrétní výukový celek jako doporučený, čímž se zvyšuje jeho šance na~zobrazení na~domovské stránce. Tento systém umožňuje zdůraznit kvalitní materiály, které by mohly být pro uživatele nejvíce přínosné.
 
 \begin{figure}[H]
@@ -1718,22 +1728,24 @@ Pod vyhledávací sekcí se nachází oblast s~doporučenými výukovými celky.
 
 \subsection{Nahrání nového výukového plánu}
 
-V~navigační liště se nachází tlačítko \quotedblbase Nahrát materiál``, které po~kliknutí otevře okno pro nahrání exportovaného výukového celku z~\textit{EDUBO}.
+V~navigační liště se nachází tlačítko \quotedblbase Nahrát materiál``, které po~kliknutí otevře modální okno pro nahrání exportovaného výukového celku z~\textit{EDUBO}.
 
 Po~výběru souboru je nutné zadat název a~popis, který lze upravovat pomocí WYSIWYG editoru. Předmět se automaticky nastaví podle názvu předmětu z~\textit{EDUBO}, ale lze jej upravit. Dále je třeba vybrat ročník, třídu, kategorii a~klíčová slova, která pomohou s~filtrováním obsahu. Uživatel má také možnost změnit jazyk výukového celku nebo přidat výstupy z~RVP, čímž zajistí přesnější zařazení materiálu do~vzdělávacího systému.
 
 \begin{figure}[H]
 	\centering
-	\resizebox{12cm}{!}{\includegraphics{eduklub-2.png}}
-	\caption{Modální okno pro přidání nového výukového celku v~aplikaci \textit{Eduklub~--~plány výuky}.}
+	\resizebox{13cm}{!}{\includegraphics{eduklub-2.png}}
+	\caption{Modální okno pro přidání nového výukového celku v~aplikaci\break\textit{Eduklub~--~plány výuky}.}
 	\label{fig:eduklub-2}
 \end{figure}
+
+\newpage
 
 \subsection{Vyhledávací stránka agregátoru výukových plánů}
 
 Vyhledávací stránka poskytuje rozšířené možnosti filtrování a~umožňuje uživatelům najít výukové celky podle specifických kritérií. Kromě základních filtrů, které jsou dostupné i~na~domovské stránce, zde lze filtrovat výukové celky podle toho, zda se jedná o~mutace~--~tedy upravené verze existujících plánů.
 
-Další možností je filtrování podle kategorií, které jsou přiřazeny ke~každému předmětu, což umožňuje přesnější vyhledávání. Výsledky lze také seřadit podle počtu stažení, hodnocení a~počtu hodin, což usnadňuje nalezení nejpopulárnějších nebo nejlépe hodnocených výukových plánů.
+Další možností je filtrování podle kategorií, které jsou přiřazeny ke~každému předmětu, což umožňuje přesnější vyhledávání. Výsledky lze také seřadit podle počtu stažení, hodnocení a~počtu výukových hodin, což usnadňuje nalezení nejpopulárnějších nebo nejlépe hodnocených výukových plánů.
 
 \begin{figure}[H]
 	\centering
@@ -1779,7 +1791,7 @@ export const getCachedCategories = async () => {
 };
 \end{lstlisting}
 
-Tato funkce \texttt{getCachedCategories} slouží k~efektivnímu načítání seznamu kategorií s~využitím mezipaměti (\texttt{sessionStorage}). Nejprve se pokusí načíst uložená data ze~\texttt{sessionStorage} pomocí klíče \uv{categories}. Pokud jsou kategorie v~mezipaměti, převedou se zpět na~objekt a~ihned se vrátí, čímž se šetří volání na~server.
+Tato funkce \texttt{getCachedCategories} slouží k~efektivnímu načítání seznamu kategorií s~využitím mezipaměti (\texttt{sessionStorage}). Nejprve se pokusí načíst uložená data ze~\texttt{sessionStorage} pomocí klíče \texttt{categories}. Pokud jsou kategorie v~mezipaměti, převedou se zpět na~objekt a~ihned se vrátí, čímž se šetří volání na~server.
 
 Pokud kategorie v~mezipaměti nejsou, provede se asynchronní požadavek na~backend. V~případě chyby \texttt{404} se vrátí výchozí prázdný objekt \texttt{blankSubjectWithCategories}. Jinak se získaná data seřadí podle \texttt{id} a~uloží do~\texttt{sessionStorage}, aby se při dalším volání funkce nemusel znovu kontaktovat backend. Poté se vrátí načtený a~uložený seznam kategorií.
 
@@ -1787,7 +1799,7 @@ Pokud kategorie v~mezipaměti nejsou, provede se asynchronní požadavek na~back
 
 Stránka náhledu výukového celku poskytuje podrobný přehled o~konkrétním výukovém celku a~jeho obsahu. Uživatel zde vidí základní informace, jako je název plánu, autor, klíčová slova a~další metadata. Struktura stránky je rozdělena do~několika záložek, které umožňují přístup k~různým detailům výukového celku.
 
-Záložka \textbf{Popis} obsahuje textový přehled výukového plánu. Náhled plánu umožňuje prohlédnout PDF exporty všech hodin, které výukový celek obsahuje. Sekce \textbf{Hodnocení} umožňuje uživatelům hodnotit výukový celek pomocí hvězdičkového systému (0--5 hvězdiček) a~přidávat plusy a~mínusy. \textbf{Výstupy RVP} zobrazují všechny kurikulární výstupy rámcového vzdělávacího programu, které jsou v~celku zahrnuty. Záložka \textbf{Poradna a~návody} obsahuje odkazy na~články v~Eduklubu, které mohou být užitečné pro danou výuku. V~sekci \textbf{Alternativy} může autor přidat výukové plány, které jsou tematicky podobné. V~sekci \textbf{Mutace} se zobrazují upravené varianty původního výukového plánu.
+Záložka \textbf{Popis} obsahuje textový přehled výukového plánu. Náhled plánu umožňuje prohlédnout PDF exporty všech výukových hodin, které výukový celek obsahuje. Sekce \textbf{Hodnocení} umožňuje uživatelům hodnotit výukový celek pomocí hvězdičkového systému (0--5 hvězdiček) a~přidávat plusy a~mínusy. \textbf{Výstupy RVP} zobrazují všechny kurikulární výstupy rámcového vzdělávacího programu, které jsou v~celku zahrnuty. Záložka \textbf{Poradna a~návody} obsahuje odkazy na~články v~Eduklubu, které mohou být užitečné pro danou výuku. V~sekci \textbf{Alternativy} může autor přidat výukové plány, které jsou tematicky podobné. V~sekci \textbf{Mutace} se zobrazují upravené varianty původního výukového plánu.
 
 \begin{figure}[H]
 	\centering
@@ -1980,7 +1992,7 @@ V~GitHub repozitáři se nachází tyto externí přílohy:
 	\hline
 	ki-thesis.pdf & text práce v~PDF \\
 	ki-thesis.tex & zdrojový kód práce v~\LaTeX{}u \\
-	kitheses.cls & definice třídy dokumentů (rozšířená třída \texttt{scrbook} \\
+	kitheses.cls & definice třídy dokumentů (rozšířená třída \texttt{scrbook})\\
 	%thesis.bib & bibliografická databáze (exportována z~citace.com) \\
 	images & složka se všemi použitými obrázky \\
 	codes & zdrojové kódy použité v~této práci \\
