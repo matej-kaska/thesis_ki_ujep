@@ -51,9 +51,15 @@
 
 \usepackage{csquotes} % uvozovky
 
-\usepackage[style=iso-numeric,shortnumeration=true]{biblatex}
+% TODO: fix cit a url %
+\usepackage[
+backend   = biber,
+style     = numeric,
+citestyle = numeric,
+sorting   = none,
+url       = true
+]{biblatex}
 \addbibresource{thesis.bib}
-
 
 % sazba ukázek kódu 
 
@@ -139,7 +145,7 @@
 
 \usepackage{float}
 \usepackage{needspace}
-\usepackage{graphicx}
+\usepackage[draft]{graphicx} % TODO: SMAŽ DRAFT %
 
 \graphicspath{{images/}}
 
@@ -274,7 +280,7 @@ Cílem závěrečné práce je především popsat metodiku vývoje tohoto nást
 
 \chapter{Přehled současného stavu problematiky a~existujících aplikací}
 
-Plánování výuky je klíčovou činností učitelů, která ovlivňuje efektivitu vzdělávacího procesu. V~digitální éře se pro tento účel stále více využívají specializované softwarové nástroje, které zjednodušují tvorbu a~sdílení výukových plánů, správu tříd nebo interakci se~studenty. Tyto aplikace učitelům umožňují šetřit čas, lépe organizovat výuku a~poskytovat studentům kvalitnější vzdělávací materiály. Různé nástroje nabízejí širokou škálu funkcí, od~jednoduchých textových editorů až po~školské informační systémy s~integrovaným systémem pro plánování výuky a~interaktivními síťovými možnostmi.
+Plánování výuky je klíčovou činností učitelů, která ovlivňuje efektivitu vzdělávacího procesu. V~digitální éře se pro tento účel stále více využívají specializované softwarové nástroje, které zjednodušují tvorbu a~sdílení výukových plánů, správu tříd nebo interakci se~studenty, údaj je převzat z~\cite{UnescoIIEP}. Tyto aplikace učitelům umožňují šetřit čas, lépe organizovat výuku a~poskytovat studentům kvalitnější vzdělávací materiály. Různé nástroje nabízejí širokou škálu funkcí, od~jednoduchých textových editorů až po~školské informační systémy s~integrovaným systémem pro plánování výuky a~interaktivními síťovými možnostmi.
 
 Tato kapitola se zaměřuje na~přehled čtyř významných aplikací pro plánování výuky a~jejich srovnání s~projektem \textit{EDUBO}. Nejvíce se \textit{EDUBO} přibližují aplikace \textit{Planbook} a~\textit{Common~Curriculum}, které nabízejí rozšířené možnosti správy výukových plánů. Dále budou zmíněny jednodušší aplikace \textit{Lesson~Planner~PH} a~\textit{Slides~Go~AI~Lesson~Plan~Generator}, které mají limitovanou funkčnost a~odlišnou cílovou skupinu. Pro každou aplikaci bude popsána její funkcionalita, výhody, nevýhody a~rozdíly oproti \textit{EDUBO}.
 
@@ -359,23 +365,25 @@ Tyto dvě aplikace ukazují, že současný trend umělé inteligence přináš�
 \chapter{Teoretická východiska}
 \section{Výukový proces}
 
-Porozumění výukovému procesu je pro~každého vyučujícího klíčové, protože právě skrze něj se uskutečňuje efektivní přenos znalostí a~dovedností. Výukový proces není pouze o~předávání informací, ale o~vědomém a~promyšleném řízení výuky tak, aby došlo k~porozumění, zapamatování a~aplikaci učiva. Pro~vyučujícího to znamená nejen znalost látky, ale i~schopnost zvolit vhodné metody, nástroje a~strategie, které podpoří proces učení u~každého jednotlivého žáka. Studium výukového procesu tak poskytuje rámec, jak výuku strukturovat, reflektovat a~postupně zlepšovat.
+Porozumění výukovému procesu je pro~každého vyučujícího klíčové, protože právě skrze něj se uskutečňuje efektivní přenos znalostí a~dovedností. Výukový proces není pouze o~předávání informací, ale o~vědomém a~promyšleném řízení výuky tak, aby došlo k~porozumění, zapamatování a~aplikaci učiva. Pro~vyučujícího to znamená nejen znalost látky, ale i~schopnost zvolit vhodné metody, nástroje a~strategie, které podpoří proces učení u~každého jednotlivého žáka.
 
-Jedním z~často citovaných modelů, který pomáhá pochopit strukturu efektivního vyučování,\break je Gagného devíti krokový model (\textit{Nine~Events~of~Instruction}). Americký psycholog\break\mbox{Robert~Mills~Gagné,~A.B.,~Sc.M.,~Ph.D.}, vytvořil tuto strukturu jako vodítko pro~učitele k~postupnému vedení výuky, která podporuje učení na~úrovni kognitivních procesů. Jeho devět kroků lze shrnout následovně:
+Jedním z~často citovaných modelů, který pomáhá pochopit strukturu efektivního vyučování,\break je Gagného devíti krokový model (\textit{Nine~Events~of~Instruction}). Americký psycholog\break\mbox{Robert~Mills~Gagné,~A.B.,~Sc.M.,~Ph.D.}, vytvořil tuto strukturu jako vodítko pro~učitele k~postupnému vedení výuky. Jeho devět kroků lze shrnout následovně:
 
 \begin{enumerate}
 	\item \textbf{Získání pozornosti} (\textit{Gaining attention})~--~Například pomocí otázky, překvapivého faktu nebo vizuálního stimulu.
 	\item \textbf{Informování o~cílech výuky} (\textit{Informing learners of objectives})~--~Učící se by měl vědět, co~se má naučit.
 	\item \textbf{Navázání na~předchozí znalosti} (\textit{Stimulating recall of prior learning})~--~Aktivace dřívějších znalostí a~zkušeností.
 	\item \textbf{Prezentace obsahu} (\textit{Presenting the stimulus})~--~Podání nové látky vhodnou formou.
-	\item \textbf{Poskytnutí vedení} (\textit{Provide learning guidance})~--~Poskytnutí vodítek, která pomáhají učícímu se propojit nové informace do~smysluplného celku.
+	\item \textbf{Poskytnutí vedení} (\textit{Providing "learning guidance"})~--~Poskytnutí vodítek, která pomáhají učícímu se propojit nové informace do~smysluplného celku.
 	\item \textbf{Vybídnutí k~praxi} (\textit{Eliciting performance})~--~Možnost procvičení nebo vyzkoušení nového učiva.
-	\item \textbf{Poskytnutí zpětné vazby} (\textit{Providing feedback})~--~Okamžitá a~konkrétní zpětná vazba učícímu se.
+	\item \textbf{Poskytnutí zpětné vazby} (\textit{Providing feedback})~--~Okamžitá zpětná vazba učícímu se.
 	\item \textbf{Zhodnocení výstupu} (\textit{Assessing performance})~--~Ověření, zda se učící se učivo naučil, například formou testu, diskuse nebo praktického úkolu.
 	\item \textbf{Podpora zapamatování a~přenosu nově osvojených znalostí} (\textit{Enhancing retention and transfer})~--~Pomoc učícím se, aby si nové poznatky zapamatovali a~uměli je aplikovat v~praxi.
 \end{enumerate}
+\noindent
+\textit{Volně přeloženo z~\cite[s.~246]{gagne1985conditions}.}
 
-Tento model je cenný zejména svou přehledností a~univerzálností~--~lze jej aplikovat jak při přípravě běžné vyučovací hodiny, tak při tvorbě digitálních výukových materiálů.
+Tento model je cenný zejména svou přehledností a~univerzálností~--~lze jej aplikovat jak při přípravě běžné vyučovací hodiny, tak při tvorbě digitálních výukových materiálů. 
 
 Pohled na~výukový proces rozšířil také Pavel~Beránek, který jej ve~své přednášce popsal jako interakci dvou subjektů~--~vyučujícího a~učícího se. Výuková látka je vyučujícím nejprve didakticky transformována, tedy přetvořena do~podoby, která je vhodná pro~předání a~následně předávána učícímu se. Ten ji zpracovává (asimiluje) svým vlastním tempem a~způsobem. Cílem práce vyučujícího je optimalizovat celý tento proces tak, aby bylo učení co~nejefektivnější.
 
@@ -392,7 +400,7 @@ Závěrem je nutné zmínit také testování asimilace, tedy ověření toho, z
 \begin{figure}[H]
 	\centering
 	\resizebox{15.125cm}{!}{\includegraphics{vyukovy-proces.png}}
-	\caption{Diagram znázorňující výukový proces navržený Pavlem Beránkem.}
+	\caption{Převzatý diagram z \cite{beranek2025} znázorňující výukový proces navržený Pavlem Beránkem.}
 	\label{fig:vyukovy-proces}
 \end{figure}
 
@@ -401,201 +409,203 @@ Výukové aktivity tvoří základní nástroje, pomocí kterých učitel strukt
 
 \subsection{Evokace}
 
-Evokace představuje úvodní fázi výukové hodiny a~její hlavní funkcí je připravit žáky na~výuku. Správně zvládnutý začátek hodiny je předpokladem pro~úspěšné učení. Učitel v~této fázi pracuje s~pozorností, motivací, cíli a~navázáním na~předchozí znalosti žáků. Účelem je zajistit, aby žáci věděli, co~se budou učit, proč je to důležité, a~zároveň se cítili připraveni na~nové učivo.
+Evokace představuje úvodní fázi výukové hodiny a~její hlavní funkcí je připravit žáky na~výuku. Správně zvládnutý začátek hodiny je předpokladem pro~úspěšné učení. Učitel v~této fázi pracuje s~pozorností, motivací, cíli a~navázáním na~předchozí znalosti žáků. Účelem je zajistit, aby žáci věděli, co~se budou učit, proč je to důležité, a~zároveň se cítili připraveni na~nové učivo.\cite{eduEvokace}
 
-\subsubsection{Aktivace předchozích znalostí} Jednou z~klíčových aktivit v~rámci evokace je aktivace vstupních znalostí, kdy učitel zjišťuje, co~žáci o~tématu už vědí. Může využít brainstorming (burza nápadů), otázky, digitální nástroje (např.~Mentimeter) nebo krátké úlohy. Výsledky se doporučuje vizualizovat, aby s~nimi bylo možné dále pracovat.
+\subsubsection{Aktivace předchozích znalostí}
+Jednou z~klíčových aktivit v~rámci evokace je aktivace vstupních znalostí, kdy učitel zjišťuje, co~žáci o~tématu už vědí. Může využít brainstorming (burza nápadů), otázky, digitální nástroje (např.~Mentimeter) nebo krátké úlohy. Výsledky se doporučuje vizualizovat, aby s~nimi bylo možné dále pracovat.\cite{eduAktivovaniVstupnichZnalosti}
 
-\subsubsection{Stanovení cílů} Další důležitou aktivitou v~úvodu hodiny je sdělení výukového cíle. Dobře formulovaný cíl by měl být konkrétní, ověřitelný a~formulovaný z~pohledu žáka~--~např.~\quotedblbase žák na~konci hodiny rozliší\ldots``. Formulace cílů může vycházet z~Bloomovy taxonomie nebo její revidované verze, která rozlišuje dimenzi znalostí a~kognitivních procesů. Stanovení cíle dává výuce směr a~umožňuje učiteli i~žákovi reflektovat pokrok.
+\subsubsection{Stanovení cílů}
+Další důležitou aktivitou v~úvodu hodiny je sdělení výukového cíle. Dobře formulovaný cíl by měl být konkrétní, ověřitelný a~formulovaný z~pohledu žáka~--~např.~\quotedblbase žák na~konci hodiny rozliší\ldots``. Formulace cílů může vycházet z~Bloomovy taxonomie nebo její revidované verze, která rozlišuje dimenzi znalostí a~kognitivních procesů. Stanovení cíle dává výuce směr a~umožňuje učiteli i~žákovi reflektovat pokrok.\cite{eduStanoveniCilu}
 
 \subsection{Hodnocení}
-Hodnocení je jednou ze~součástí vzdělávacího procesu. Jeho cílem je poskytnout žákům zpětnou vazbu a~podporu pro~jejich další učení a~rozvoj. Mělo by být konstruktivní, pozitivní a~objektivní. Hodnocení neslouží jen ke~klasifikaci, ale i~k~identifikaci oblastí, na~kterých je třeba dále pracovat. Důležité je vytvořit podpůrné a~bezpečné prostředí, kde stres z~výsledků není překážkou v~učení. Hodnocení tak může být nástrojem rozvoje, ne trestu.
+Hodnocení je jednou ze~součástí vzdělávacího procesu. Jeho cílem je poskytnout žákům zpětnou vazbu a~podporu pro~jejich další učení a~rozvoj. Mělo by být konstruktivní, pozitivní a~objektivní. Hodnocení neslouží jen ke~klasifikaci, ale i~k~identifikaci oblastí, na~kterých je třeba dále pracovat. Důležité je vytvořit podpůrné a~bezpečné prostředí, kde stres z~výsledků není překážkou v~učení. Hodnocení tak může být nástrojem rozvoje, ne trestu.\cite{eduHodnoceni}
 
 \newpage
 
 \subsubsection{Kontrolní test}
-Kontrolní test může mít písemnou nebo praktickou podobu. Slouží k~ověření znalostí a~dovedností v~rámci aktuálně probírané oblasti. V~praktické podobě může žák například něco vytvořit, opravit či navrhnout. Testy mohou zahrnovat různé typy otázek~--~otevřené, uzavřené, shody nebo doplňování vět.
+Kontrolní test může mít písemnou nebo praktickou podobu. Slouží k~ověření znalostí a~dovedností v~rámci aktuálně probírané oblasti. V~praktické podobě může žák například něco vytvořit, opravit či navrhnout. Testy mohou zahrnovat různé typy otázek~--~otevřené, uzavřené, shody nebo doplňování vět.\cite{eduKontrolniTest}
 
 \subsubsection{Souhrnný test}
-Souhrnný test ověřuje zvládnutí učiva za~delší časové období, např.~na~konci tematického celku, čtvrtletí nebo pololetí. Mívá širší záběr než běžné testy a~může mít písemnou nebo praktickou formu. Záměrem není jen ověřit paměťové zvládnutí faktů, ale také schopnost propojit klíčové koncepty a~dovednosti.
+Souhrnný test ověřuje zvládnutí učiva za~delší časové období, např.~na~konci tematického celku, čtvrtletí nebo pololetí. Mívá širší záběr než běžné testy a~může mít písemnou nebo praktickou formu. Záměrem není jen ověřit paměťové zvládnutí faktů, ale také schopnost propojit klíčové koncepty a~dovednosti.\cite{eduSouhrnnyTest}
 
 \subsubsection{Ústní zkoušení}
-Ústní zkoušení může být pro~některé žáky stresující. Je důležité žáky na~jeho průběh připravit, poskytnout jim jasné informace o~jeho cíli a~průběhu. Důraz by měl být kladen na~porozumění, nikoli na~formu. Alternativou může být projekt, prezentace nebo týmová práce.
+Ústní zkoušení může být pro~některé žáky stresující. Je důležité žáky na~jeho průběh připravit, poskytnout jim jasné informace o~jeho cíli a~průběhu. Důraz by měl být kladen na~porozumění, nikoli na~formu. Alternativou může být projekt, prezentace nebo týmová práce.\cite{eduUstniZkouseni}
 
 \subsubsection{On-line testování}
-On-line testování poskytuje okamžitou zpětnou vazbu, umožňuje personalizaci testu a~efektivní sledování pokroku žáků. Díky automatickému hodnocení je časově efektivní a~umožňuje rychlé vyhodnocení odpovědí. Test může být proveden na~různých zařízeních~--~mobilních telefonech, tabletech i~počítačích.
+On-line testování poskytuje okamžitou zpětnou vazbu, umožňuje personalizaci testu a~efektivní sledování pokroku žáků. Díky automatickému hodnocení je časově efektivní a~umožňuje rychlé vyhodnocení odpovědí. Test může být proveden na~různých zařízeních~--~mobilních telefonech, tabletech i~počítačích.\cite{eduOnlineTestovani}
 
 \subsubsection{Skupinové testování}
-Skupinové testování je forma hodnocení, která rozvíjí nejen znalosti a~dovednosti, ale také schopnost komunikace a~spolupráce. Test není soutěž, ale příležitost pro~vzájemné učení. Žáci by měli být předem seznámeni s~hodnoticími kritérii. Správně vedené skupinové testování pomáhá posilovat sociální dovednosti i~kritické myšlení.
+Skupinové testování je forma hodnocení, která rozvíjí nejen znalosti a~dovednosti, ale také schopnost komunikace a~spolupráce. Test není soutěž, ale příležitost pro~vzájemné učení. Žáci by měli být předem seznámeni s~hodnoticími kritérii. Správně vedené skupinové testování pomáhá posilovat sociální dovednosti i~kritické myšlení.\cite{eduSkupinoveTestovani}
 
 \subsection{Objevování}
 
 Objevování neboli \quotedblbase umění objevovat`` označuje metodologický přístup k~poznání založený na~uvědomění si existence určitých pravidelností, které dosud nebyly ověřeny. Žáci nejsou pasivními příjemci informací, ale sami přicházejí na~nové poznatky prostřednictvím vlastního bádání, srovnávání, kladení otázek a~vytváření hypotéz. Didaktickým cílem objevování je zapojit žáky do~procesu samostatného řešení problémů a~podpořit jejich tvůrčí myšlení.
 
-Objevování může mít podobu heuristického rozhovoru nebo výkladu, přičemž žáci pracují s~otázkami, modely, schématy či analogiemi. Výuka založená na~heuristických funkcích stimuluje žáky k~aktivnímu učení, hlubšímu porozumění a~integraci znalostí. Učitel může zvolit \quotedblbase malou`` nebo \quotedblbase velkou`` heuristickou metodu~--~podle míry samostatnosti žáka při zpracování učiva.
+Objevování může mít podobu heuristického rozhovoru nebo výkladu, přičemž žáci pracují s~otázkami, modely, schématy či analogiemi. Výuka založená na~heuristických funkcích stimuluje žáky k~aktivnímu učení, hlubšímu porozumění a~integraci znalostí. Učitel může zvolit \quotedblbase malou`` nebo \quotedblbase velkou`` heuristickou metodu~--~podle míry samostatnosti žáka při zpracování učiva.\cite{eduObjevovani}
 
 \subsubsection{Práce se~zdroji, příklady a~situacemi}
 
-Žáci se učí využívat dostupné informační zdroje, pracují s~texty, obrázky, animacemi nebo simulačními programy. Výuka může být zaměřena na~vyhledávání informací, jejich prezentaci, práci s~výukovým softwarem nebo tvorbu vlastních výstupů. Učitel by měl nabídnout vhodné okruhy nebo odkazy a~důsledně promyslet činnosti žáků po~stránce metodické i~obsahové.
+Žáci se učí využívat dostupné informační zdroje, pracují s~texty, obrázky, animacemi nebo simulačními programy. Výuka může být zaměřena na~vyhledávání informací, jejich prezentaci, práci s~výukovým softwarem nebo tvorbu vlastních výstupů. Učitel by měl nabídnout vhodné okruhy nebo odkazy a~důsledně promyslet činnosti žáků po~stránce metodické i~obsahové.\cite{eduPraceSeZdrojiPrikladySituacemi}
 
 \subsubsection{Pracovní listy}
 
-Pracovní listy vedou žáky k~aktivnímu zkoumání a~kritickému myšlení. Mohou obsahovat otázky, úkoly nebo úlohy k~analýze konkrétního problému. Pracovní listy lze využít při individuální, párové i~skupinové práci.
+Pracovní listy vedou žáky k~aktivnímu zkoumání a~kritickému myšlení. Mohou obsahovat otázky, úkoly nebo úlohy k~analýze konkrétního problému. Pracovní listy lze využít při individuální, párové i~skupinové práci.\cite{eduPracovniListy}
 
 \subsubsection{Bádání}
 
-Badatelsky orientované učení podporuje koncepční porozumění a~proces osvojování znalostí skrze vlastní aktivitu žáka. Žáci formulují problémy, navrhují způsoby řešení, analyzují a~ověřují data. Podle míry vedení učitelem lze rozlišit čtyři úrovně bádání~--~potvrzující, strukturované, nasměrované a~otevřené.
+Badatelsky orientované učení podporuje koncepční porozumění a~proces osvojování znalostí skrze vlastní aktivitu žáka. Žáci formulují problémy, navrhují způsoby řešení, analyzují a~ověřují data. Podle míry vedení učitelem lze rozlišit čtyři úrovně bádání~--~potvrzující, strukturované, nasměrované a~otevřené.\cite{eduBadani}
 
 \subsubsection{Experiment}
 
-Experiment slouží k~ověřování hypotéz a~poznání za~řízených podmínek. Může mít formu kvalitativní, kvantitativní nebo myšlenkovou. Během experimentu žáci pozorují, měří, analyzují data a~vyvozují závěry. Významnou roli hraje i~plánování a~zpracování výsledků.
+Experiment slouží k~ověřování hypotéz a~poznání za~řízených podmínek. Může mít formu kvalitativní, kvantitativní nebo myšlenkovou. Během experimentu žáci pozorují, měří, analyzují data a~vyvozují závěry. Významnou roli hraje i~plánování a~zpracování výsledků.\cite{eduExperiment}
 
 \subsubsection{On-line experiment}
 
-On-line experimenty zpřístupňují vzdálená měření nebo přístroje, které by jinak byly žákům nedostupné. Žáci mohou získávat data z~reálných měření například prostřednictvím meteorologických stanic nebo vzdálených laboratoří.
+On-line experimenty zpřístupňují vzdálená měření nebo přístroje, které by jinak byly žákům nedostupné. Žáci mohou získávat data z~reálných měření například prostřednictvím meteorologických stanic nebo vzdálených laboratoří.\cite{eduOnlineExperiment}
 
 \newpage
 
 \subsubsection{Simulace}
 
-Simulace představují využití virtuálního prostředí k~modelování jevů, které jsou nebezpečné, obtížně přístupné nebo abstraktní. Ve~výuce se využívají například simulace měření, modelování molekul nebo virtuální laboratoře. Tyto nástroje pomáhají vizualizovat procesy a~zprostředkovat poznání jinou formou než tradiční experiment.
+Simulace představují využití virtuálního prostředí k~modelování jevů, které jsou nebezpečné, obtížně přístupné nebo abstraktní. Ve~výuce se využívají například simulace měření, modelování molekul nebo virtuální laboratoře. Tyto nástroje pomáhají vizualizovat procesy a~zprostředkovat poznání jinou formou než tradiční experiment.\cite{eduSimulace}
 
 \subsection{Zdroje}
 
-Práce se~zdroji představuje důležitou výukovou aktivitu, která rozvíjí kritické myšlení, informační gramotnost a~schopnost samostatného učení. Žáci se neučí pouze pasivně přijímat předložené informace, ale také sami vyhledávat relevantní a~důvěryhodné zdroje, posuzovat jejich kvalitu a~ověřovat fakta. Učitelé je přitom vedou k~rozpoznání spolehlivosti informací, zohlednění různých pohledů na~téma a~etickému zacházení s~informacemi. Klíčem je podpora samostatnosti a~schopnosti žáků aktivně se~zapojit do~vzdělávacího procesu prostřednictvím informací z~různých typů zdrojů.
+Práce se~zdroji představuje důležitou výukovou aktivitu, která rozvíjí kritické myšlení, informační gramotnost a~schopnost samostatného učení. Žáci se neučí pouze pasivně přijímat předložené informace, ale také sami vyhledávat relevantní a~důvěryhodné zdroje, posuzovat jejich kvalitu a~ověřovat fakta. Učitelé je přitom vedou k~rozpoznání spolehlivosti informací, zohlednění různých pohledů na~téma a~etickému zacházení s~informacemi. Klíčem je podpora samostatnosti a~schopnosti žáků aktivně se~zapojit do~vzdělávacího procesu prostřednictvím informací z~různých typů zdrojů.\cite{eduPraceSeZdroji}
 
 \subsubsection{Sběr dat}
 
-Sběr dat je aktivitou, při které žáci sami získávají informace prostřednictvím vlastních měření, dotazníků nebo pozorování. Tento způsob práce vede k~praktické zkušenosti, rozvoji kritického myšlení i~zapojení do~místně zakotveného učení. Žáci se učí třídit a~interpretovat data, která mají pro~ně osobní význam, a~zároveň mohou rozvíjet i~komunikační dovednosti.
+Sběr dat je aktivitou, při které žáci sami získávají informace prostřednictvím vlastních měření, dotazníků nebo pozorování. Tento způsob práce vede k~praktické zkušenosti, rozvoji kritického myšlení i~zapojení do~místně zakotveného učení. Žáci se učí třídit a~interpretovat data, která mají pro~ně osobní význam, a~zároveň mohou rozvíjet i~komunikační dovednosti.\cite{eduSberDat}
 
 \subsubsection{On-line zdroje}
 
-On-line prostředí nabízí široké spektrum informačních materiálů~--~od~odborných databází po~běžně navštěvované portály. Práce s~těmito zdroji rozvíjí nejen digitální kompetence, ale především schopnost hodnotit důvěryhodnost, relevanci a~účel obsahu. Učitelé vedou žáky k~tomu, aby při vyhledávání informací zvažovali nejen co, ale i~proč a~od~koho čerpají.
+On-line prostředí nabízí široké spektrum informačních materiálů~--~od~odborných databází po~běžně navštěvované portály. Práce s~těmito zdroji rozvíjí nejen digitální kompetence, ale především schopnost hodnotit důvěryhodnost, relevanci a~účel obsahu. Učitelé vedou žáky k~tomu, aby při vyhledávání informací zvažovali nejen co, ale i~proč a~od~koho čerpají.\cite{eduOnlineZdroje}
 
 \subsubsection{Práce s~literaturou}
 
-Tištěné materiály, jako slovníky, tabulky, grafy nebo mapy, umožňují žákům porozumět obsahu do~hloubky a~trénovat dovednosti spojené s~vyhledáváním a~interpretací dat. Práce s~knihou podporuje i~dovednosti potřebné pro~akademickou přípravu.
+Tištěné materiály, jako slovníky, tabulky, grafy nebo mapy, umožňují žákům porozumět obsahu do~hloubky a~trénovat dovednosti spojené s~vyhledáváním a~interpretací dat. Práce s~knihou podporuje i~dovednosti potřebné pro~akademickou přípravu.\cite{eduPraceSLiteraturou}
 
 \newpage
 
 \subsubsection{Počítačové simulace ve~výuce}
 
-Simulace umožňují žákům interaktivní a~bezpečné zkoumání složitých jevů~--~například vizualizací pohybu, chemických reakcí nebo sociálních interakcí. Zajišťují okamžitou zpětnou vazbu a~podporují aktivní učení, analýzu výsledků a~kreativitu. Jejich dostupnost a~rozmanitost umožňuje efektivní využití napříč obory a~stupni vzdělávání.
+Simulace umožňují žákům interaktivní a~bezpečné zkoumání složitých jevů~--~například vizualizací pohybu, chemických reakcí nebo sociálních interakcí. Zajišťují okamžitou zpětnou vazbu a~podporují aktivní učení, analýzu výsledků a~kreativitu. Jejich dostupnost a~rozmanitost umožňuje efektivní využití napříč obory a~stupni vzdělávání.\cite{eduPocitacoveSimulace}
 
 \subsection{Procvičování}
 
-Procvičování je základním stavebním kamenem efektivního vzdělávání. Umožňuje žákům upevnit znalosti, přenést je do~dlouhodobé paměti a~osvojit si automatizované dovednosti. Klíčem je pravidelnost, rozmanitost a~cílené opakování. Kombinace různých typů úloh, praktické aplikace a~poskytnutí zpětné vazby podporují hlubší porozumění a~motivují k~dalšímu učení. Významnou roli zde sehrává i~technologie, která umožňuje individualizaci výuky a~okamžitou odezvu na~výkon žáků.
+Procvičování je základním stavebním kamenem efektivního vzdělávání. Umožňuje žákům upevnit znalosti, přenést je do~dlouhodobé paměti a~osvojit si automatizované dovednosti. Klíčem je pravidelnost, rozmanitost a~cílené opakování. Kombinace různých typů úloh, praktické aplikace a~poskytnutí zpětné vazby podporují hlubší porozumění a~motivují k~dalšímu učení. Významnou roli zde sehrává i~technologie, která umožňuje individualizaci výuky a~okamžitou odezvu na~výkon žáků.\cite{eduProcvicovani}
 
 \subsubsection{Receptivní a~produktivní jazykové dovednosti}
 
-Procvičování zahrnuje aktivity zaměřené na~všechny složky jazykového projevu. Čtení a~poslech rozvíjejí schopnost porozumět tištěným i~audiovizuálním materiálům. Mluvení a~psaní vedou k~aktivní produkci, kde žáci uplatňují získané poznatky ve~vlastním projevu. Všechny tyto dovednosti se uplatňují v~komunikaci, často i~formou interakce mezi spolužáky, která přirozeně propojuje jazyk s~reálnými situacemi.
+Procvičování zahrnuje aktivity zaměřené na~všechny složky jazykového projevu. Čtení a~poslech rozvíjejí schopnost porozumět tištěným i~audiovizuálním materiálům. Mluvení a~psaní vedou k~aktivní produkci, kde žáci uplatňují získané poznatky ve~vlastním projevu. Všechny tyto dovednosti se uplatňují v~komunikaci, často i~formou interakce mezi spolužáky, která přirozeně propojuje jazyk s~reálnými situacemi.\cite{eduCteni}\cite{eduPsani}\cite{eduPoslech}\cite{eduMluveni}\cite{eduInterakce}
 
 \subsubsection{Procvičování s~využitím ICT}
 
-Digitální nástroje jako Google~Forms, Kahoot! nebo Quizlet umožňují rychlé a~variabilní procvičování s~okamžitou zpětnou vazbou. Podporují motivaci žáků, ulehčují sledování pokroku a~umožňují efektivní diferenciaci výuky.
+Digitální nástroje jako Google~Forms, Kahoot! nebo Quizlet umožňují rychlé a~variabilní procvičování s~okamžitou zpětnou vazbou. Podporují motivaci žáků, ulehčují sledování pokroku a~umožňují efektivní diferenciaci výuky.\cite{eduProcvICT}
 
 \subsubsection{Mediace}
 
-Mediace představuje schopnost zprostředkovat informaci dalším osobám~--~shrnout, přeložit, vysvětlit či přetvořit původní sdělení tak, aby bylo srozumitelné. Umožňuje žákům propojit porozumění a~produkci, rozvíjí samostatnost a~schopnost přizpůsobit jazyk různým situacím a~adresátům.
+Mediace představuje schopnost zprostředkovat informaci dalším osobám~--~shrnout, přeložit, vysvětlit či přetvořit původní sdělení tak, aby bylo srozumitelné. Umožňuje žákům propojit porozumění a~produkci, rozvíjí samostatnost a~schopnost přizpůsobit jazyk různým situacím a~adresátům.\cite{eduMediace}
 
 \subsubsection{Manipulativní činnosti}
 
-Práce s~konkrétními objekty pomáhá rozvíjet jemnou motoriku, prostorové vnímání, ale i~schopnost spolupráce a~řešení problémů. Rýsování, stavění modelů nebo praktická měření přinášejí aktivní zapojení žáků a~podporují jejich učení prostřednictvím více smyslů.
+Práce s~konkrétními objekty pomáhá rozvíjet jemnou motoriku, prostorové vnímání, ale i~schopnost spolupráce a~řešení problémů. Rýsování, stavění modelů nebo praktická měření přinášejí aktivní zapojení žáků a~podporují jejich učení prostřednictvím více smyslů.\cite{eduManipulativniCinnosti}
 
 \subsubsection{Herní aktivity}
 
-Hra vytváří přirozené a~motivující prostředí pro~učení. Využívá soutěživost, ale i~spolupráci. Jazyk a~poznatky jsou aplikovány nenásilně, což napomáhá jejich osvojení. Didaktické hry umožňují procvičování i~evaluaci bez~stresu z~formálního hodnocení.
+Hra vytváří přirozené a~motivující prostředí pro~učení. Využívá soutěživost, ale i~spolupráci. Jazyk a~poznatky jsou aplikovány nenásilně, což napomáhá jejich osvojení. Didaktické hry umožňují procvičování i~evaluaci bez~stresu z~formálního hodnocení.\cite{eduHra}
 
 \subsection{Shrnutí}
 
-Závěrečné shrnutí je důležitou součástí hodiny. Nejde jen o~zopakování, co~se v~hodině dělo, ale hlavně o~zdůraznění podstatného a~propojení na~další témata. Shrnutí pomáhá utvrdit učivo, dává žákům přehled, kontroluje porozumění a~podporuje aktivní učení. Má také pozitivní vliv na~motivaci a~přípravu na~domácí úkoly nebo zkoušení.
+Závěrečné shrnutí je důležitou součástí hodiny. Nejde jen o~zopakování, co~se v~hodině dělo, ale hlavně o~zdůraznění podstatného a~propojení na~další témata. Shrnutí pomáhá utvrdit učivo, dává žákům přehled, kontroluje porozumění a~podporuje aktivní učení. Má také pozitivní vliv na~motivaci a~přípravu na~domácí úkoly nebo zkoušení.\cite{eduShrnuti}
 
 \subsubsection{Had}
 
-Had je jednoduchá, ale efektivní metoda shrnutí učiva, při které každý žák stručně sdělí, co~si z~hodiny odnáší. Postupuje se po~třídě, jeden po~druhém~--~vzniká tak pomyslný \quotedblbase had``. Vyučující může žáky omezit na~jedno či dvě slova, případně zadání ztížit tím, že každý musí říct něco, co~ještě nezaznělo. Aktivita posiluje soustředění, sebereflexi a~dává učiteli rychlou zpětnou vazbu o~tom, co~žáci vnímají jako důležité.
+Had je jednoduchá, ale efektivní metoda shrnutí učiva, při které každý žák stručně sdělí, co~si z~hodiny odnáší. Postupuje se po~třídě, jeden po~druhém~--~vzniká tak pomyslný \quotedblbase had``. Vyučující může žáky omezit na~jedno či dvě slova, případně zadání ztížit tím, že každý musí říct něco, co~ještě nezaznělo. Aktivita posiluje soustředění, sebereflexi a~dává učiteli rychlou zpětnou vazbu o~tom, co~žáci vnímají jako důležité.\cite{eduHad}
 
 \subsubsection{Propustky}
 
-Propustky jsou shrnovací technika, při které žáci na~konci hodiny vyplní malý lístek s~odpovědí na~zadanou otázku~--~např.~\quotedblbase Co~si z~hodiny odnášíš?“, případně \quotedblbase Čemu jsi nerozuměl?“. Mohou být anonymní, což podporuje upřímnost a~pocit bezpečí. Učitel získává rychlý přehled o~pochopení učiva i~tématech, ke~kterým je potřeba se vrátit. Propustky jsou nenáročné na~přípravu a~dají se snadno začlenit do~jakékoliv výuky.
+Propustky jsou shrnovací technika, při které žáci na~konci hodiny vyplní malý lístek s~odpovědí na~zadanou otázku~--~např.~\quotedblbase Co~si z~hodiny odnášíš?“, případně \quotedblbase Čemu jsi nerozuměl?“. Mohou být anonymní, což podporuje upřímnost a~pocit bezpečí. Učitel získává rychlý přehled o~pochopení učiva i~tématech, ke~kterým je potřeba se vrátit. Propustky jsou nenáročné na~přípravu a~dají se snadno začlenit do~jakékoliv výuky.\cite{eduPropustky}
 
 \subsubsection{Myšlenkové mapy}
 
-Myšlenkové mapy slouží jako vizuální nástroj pro~shrnutí učiva, který pomáhá zapamatování, třídění informací a~rozvíjí kreativitu. Lze je využít při prezentacích, brainstormingu, plánování, řešení problémů i~alternativních zápiscích.
+Myšlenkové mapy slouží jako vizuální nástroj pro~shrnutí učiva, který pomáhá zapamatování, třídění informací a~rozvíjí kreativitu. Lze je využít při prezentacích, brainstormingu, plánování, řešení problémů i~alternativních zápiscích.\cite{eduMyslenkoveMapy}
 
 \subsubsection{Otázky}
 
-Otázky jsou klíčovým nástrojem zpětné vazby. Pomáhají učiteli zjistit míru porozumění a~žákům třídit myšlenky. Měly by být promyšlené, navázané na~výukové cíle a~přizpůsobené úrovni žáků. Kromě faktických dotazů je vhodné používat otázky vyšší kognitivní úrovně\break(např.~podle Bloomovy taxonomie), otevřené otázky nebo techniky jako \textit{Think~--~Pair~--~Share\break(Mysli~--~Diskutuj~ve~dvojici~--~Sdílej)}.
+Otázky jsou klíčovým nástrojem zpětné vazby. Pomáhají učiteli zjistit míru porozumění a~žákům třídit myšlenky. Měly by být promyšlené, navázané na~výukové cíle a~přizpůsobené úrovni žáků. Kromě faktických dotazů je vhodné používat otázky vyšší kognitivní úrovně\break(např.~podle Bloomovy taxonomie), otevřené otázky nebo techniky jako \textit{Think~--~Pair~--~Share\break(Mysli~--~Diskutuj~ve~dvojici~--~Sdílej)}.\cite{eduOtazky}
 
 \subsection{Výklad}
 
-Výklad je metoda, při které učitel slovně předává nové informace a~vysvětluje význam učiva. Patří mezi nejběžnější formy výuky, umožňuje rychle a~efektivně seznámit žáky s~novým tématem. Aby byl výklad co~nejúčinnější, měl by být srozumitelný, strukturovaný, doplněný vizuální oporou a~proložený aktivizačními prvky.
+Výklad je metoda, při které učitel slovně předává nové informace a~vysvětluje význam učiva. Patří mezi nejběžnější formy výuky, umožňuje rychle a~efektivně seznámit žáky s~novým tématem. Aby byl výklad co~nejúčinnější, měl by být srozumitelný, strukturovaný, doplněný vizuální oporou a~proložený aktivizačními prvky.\cite{eduVyklad}
 
 \subsubsection{Struktura učiva}
 
-Seznámení žáků s~cíli a~strukturou učiva na~začátku tématu podporuje jejich motivaci, orientaci a~pochopení. Jasný rámec výuky pomáhá lépe plánovat další aktivity a~rozvíjí i~kritické myšlení žáků.
+Seznámení žáků s~cíli a~strukturou učiva na~začátku tématu podporuje jejich motivaci, orientaci a~pochopení. Jasný rámec výuky pomáhá lépe plánovat další aktivity a~rozvíjí i~kritické myšlení žáků.\cite{eduStrukturaUciva}
 
 \subsubsection{Vizualizace}
 
-Teorie duálního kódování vysvětluje, proč si žáci lépe zapamatují informaci, pokud ji slyší a~zároveň vidí. Mozek totiž zpracovává informace pomocí dvou oddělených kanálů: verbálního (slova) a~vizuálního (obrazy). Když tyto kanály propojujeme, snižujeme zatížení pracovní paměti a~zvyšujeme šanci na~hlubší učení, zejména u~dětí starších sedmi let. Výzkumy ukazují, že např.~při učení slovíček pomáhá jejich propojení s~odpovídajícími obrázky. V~hodinách tak dává smysl kombinovat výklad s~vhodnými vizuálními prvky.
+Teorie duálního kódování vysvětluje, proč si žáci lépe zapamatují informaci, pokud ji slyší a~zároveň vidí. Mozek totiž zpracovává informace pomocí dvou oddělených kanálů: verbálního (slova) a~vizuálního (obrazy). Když tyto kanály propojujeme, snižujeme zatížení pracovní paměti a~zvyšujeme šanci na~hlubší učení, zejména u~dětí starších sedmi let. Výzkumy ukazují, že např.~při učení slovíček pomáhá jejich propojení s~odpovídajícími obrázky. V~hodinách tak dává smysl kombinovat výklad s~vhodnými vizuálními prvky.\cite{eduVizualizace}
 
 \subsubsection{Praktické příklady}
 
-Použití konkrétních příkladů, modelů nebo běžných životních situací přibližuje učivo realitě a~podporuje hlubší porozumění. Žáci si lépe zapamatují to, co~si dokáží představit nebo si sami vyzkoušet.
+Použití konkrétních příkladů, modelů nebo běžných životních situací přibližuje učivo realitě a~podporuje hlubší porozumění. Žáci si lépe zapamatují to, co~si dokáží představit nebo si sami vyzkoušet.\cite{eduPraktickePriklady}
 
 \subsubsection{Modely}
 
-Modely chápeme jako názorné učební pomůcky, které pomáhají konkretizovat abstraktní pojmy a~objasnit vztahy nebo procesy. Měly by být názorné, věrné a~přiměřeně zjednodušené. Důležité je, aby žáci chápali rozdíl mezi modelem a~skutečností.
+Modely chápeme jako názorné učební pomůcky, které pomáhají konkretizovat abstraktní pojmy a~objasnit vztahy nebo procesy. Měly by být názorné, věrné a~přiměřeně zjednodušené. Důležité je, aby žáci chápali rozdíl mezi modelem a~skutečností.\cite{eduModely}
 
 \subsection{Zpětná vazba}
 
-Zpětná vazba je klíčovou součástí formativního hodnocení. Než ji poskytneme, musíme mít jasné cíle a~kritéria hodnocení. Efektivní zpětná vazba popisuje, co~se žákovi podařilo, a~místo přímé kritiky klade otázky, které vedou k~zamyšlení. Správně podaná zpětná vazba by měla žáka motivovat a~vést ke~zlepšení výkonu, nikoliv ho demotivovat nebo hodnotit jako osobnost.
+Zpětná vazba je klíčovou součástí formativního hodnocení. Než ji poskytneme, musíme mít jasné cíle a~kritéria hodnocení. Efektivní zpětná vazba popisuje, co~se žákovi podařilo, a~místo přímé kritiky klade otázky, které vedou k~zamyšlení. Správně podaná zpětná vazba by měla žáka motivovat a~vést ke~zlepšení výkonu, nikoliv ho demotivovat nebo hodnotit jako osobnost.\cite{eduZpetnaVazba}
 
 \subsubsection{Signál}
 
-Signál je jednoduchá technika pro~okamžité zjištění, zda žáci porozuměli učivu. Pomocí palců, symbolů nebo kartiček dávají žáci najevo, jestli učivo chápou, mají pochybnosti nebo nerozumí. Výhodou je rychlá vizuální zpětná vazba, kterou učitel získá od~celé třídy najednou. Tato metoda posiluje participaci a~učí žáky reflektovat své vlastní porozumění.
+Signál je jednoduchá technika pro~okamžité zjištění, zda žáci porozuměli učivu. Pomocí palců, symbolů nebo kartiček dávají žáci najevo, jestli učivo chápou, mají pochybnosti nebo nerozumí. Výhodou je rychlá vizuální zpětná vazba, kterou učitel získá od~celé třídy najednou. Tato metoda posiluje participaci a~učí žáky reflektovat své vlastní porozumění.\cite{eduSignal}
 
 \subsubsection{Teploměr}
 
-Teploměr slouží k~vizuálnímu vyjádření pocitu porozumění nebo nálady žáků na~škále. Umožňuje jim sledovat svůj pokrok nebo míru pochopení v~čase. Pomocí procent nebo symbolů si žáci sami označují, jak se cítí nebo jak rozumí probíranému tématu. Tato metoda podporuje sebereflexi a~umožňuje učiteli lépe přizpůsobit výuku.
+Teploměr slouží k~vizuálnímu vyjádření pocitu porozumění nebo nálady žáků na~škále. Umožňuje jim sledovat svůj pokrok nebo míru pochopení v~čase. Pomocí procent nebo symbolů si žáci sami označují, jak se cítí nebo jak rozumí probíranému tématu. Tato metoda podporuje sebereflexi a~umožňuje učiteli lépe přizpůsobit výuku.\cite{eduTeplomer}
 
 \subsubsection{Škála}
 
-Škála je nástroj, pomocí kterého mohou žáci vyjádřit, jak dobře se cítí ve~vztahu k~probírané látce nebo aktivitě. Často se využívá čtyř až desetistupňové hodnocení. Učitel získává subjektivní, ale užitečný pohled na~vnímání výuky ze~strany žáků. Škála se může týkat nejen porozumění, ale i~emocí a~spolupráce.
+Škála je nástroj, pomocí kterého mohou žáci vyjádřit, jak dobře se cítí ve~vztahu k~probírané látce nebo aktivitě. Často se využívá čtyř až desetistupňové hodnocení. Učitel získává subjektivní, ale užitečný pohled na~vnímání výuky ze~strany žáků. Škála se může týkat nejen porozumění, ale i~emocí a~spolupráce.\cite{eduSkala}
 
 \subsubsection{Semafor}
 
-Semafor je oblíbená technika, při níž žáci pomocí tří barev vyjadřují úroveň porozumění. Zelená značí úplné porozumění, oranžová nejistotu a~červená neporozumění. Učitel okamžitě získává přehled o~stavu třídy a~může reagovat. Žáci se zároveň učí hodnotit sami sebe a~nebát se přiznat problém.
+Semafor je oblíbená technika, při níž žáci pomocí tří barev vyjadřují úroveň porozumění. Zelená značí úplné porozumění, oranžová nejistotu a~červená neporozumění. Učitel okamžitě získává přehled o~stavu třídy a~může reagovat. Žáci se zároveň učí hodnotit sami sebe a~nebát se přiznat problém.\cite{eduSemafor}
 
 \subsubsection{Mazací tabulky}
 
-Mazací tabulky žáci využívají k~zaznamenání krátkých odpovědí, výpočtů, náčrtků, grafů nebo jazykových jevů, které následně na~pokyn učitele ukazují. Tím poskytují rychlou zpětnou vazbu o~své úrovni porozumění, aniž by museli vystupovat veřejně. Tato technika rozvíjí schopnost přesné formulace myšlenek a~je snadno použitelná v~různých předmětech.
+Mazací tabulky žáci využívají k~zaznamenání krátkých odpovědí, výpočtů, náčrtků, grafů nebo jazykových jevů, které následně na~pokyn učitele ukazují. Tím poskytují rychlou zpětnou vazbu o~své úrovni porozumění, aniž by museli vystupovat veřejně. Tato technika rozvíjí schopnost přesné formulace myšlenek a~je snadno použitelná v~různých předmětech.\cite{eduMazaciTabulky}
 
 \subsubsection{Losovátka a~špachtličky}
 
-Losovátka přinášejí do~výuky prvek náhody a~spravedlnosti. Učitel si připraví např.~dřevěné špachtle, na~které napíše jména všech žáků, a~vloží je do~kelímku. Po~položení otázky učitel jednu ze~špachtlí náhodně vytáhne a~ta určí, kdo bude odpovídat. Tímto způsobem se udržuje pozornost celé třídy a~aktivizují se i~ti, kteří se běžně nehlásí. Tento způsob zajišťuje spravedlnost a~udržuje všechny ve~střehu.
+Losovátka přinášejí do~výuky prvek náhody a~spravedlnosti. Učitel si připraví např.~dřevěné špachtle, na~které napíše jména všech žáků, a~vloží je do~kelímku. Po~položení otázky učitel jednu ze~špachtlí náhodně vytáhne a~ta určí, kdo bude odpovídat. Tímto způsobem se udržuje pozornost celé třídy a~aktivizují se i~ti, kteří se běžně nehlásí. Tento způsob zajišťuje spravedlnost a~udržuje všechny ve~střehu.\cite{eduLosovatka}
 
 \subsubsection{Think~--~Pair~--~Share}
 
-\textit{Think~--~Pair~--~Share~(Mysli~--~Diskutuj~ve~dvojici~--~Sdílej)} dává žákům čas na~přemýšlení, diskuzi a~následné sdílení. Učitel nejprve položí otázku, pak žáci diskutují ve~dvojicích, a~nakonec jeden z~nich odpoví. Tato metoda podporuje hlubší zamyšlení a~spolupráci. Introverti mají šanci připravit si odpověď, extroverti se učí strukturovat své myšlenky.
+\textit{Think~--~Pair~--~Share~(Mysli~--~Diskutuj~ve~dvojici~--~Sdílej)} dává žákům čas na~přemýšlení, diskuzi a~následné sdílení. Učitel nejprve položí otázku, pak žáci diskutují ve~dvojicích, a~nakonec jeden z~nich odpoví. Tato metoda podporuje hlubší zamyšlení a~spolupráci. Introverti mají šanci připravit si odpověď, extroverti se učí strukturovat své myšlenky.\cite{eduThinkPairShare}
 
 \subsubsection{Barevné kelímky}
 
-Barevné kelímky pomáhají žákům vizuálně vyjádřit, v~jaké fázi práce se právě nachází. Každý má na~lavici sadu kelímků různých barev~--~např.~bílý \quotedblbase pracuji``, zelený \quotedblbase mám hotovo a~mohu pomoci``, žlutý \quotedblbase potřebuji pomoc od~spolužáka`` a~červený \quotedblbase nerozumím a~potřebuji pomoc učitele``. Žák jednoduše postaví na~lavici kelímek dané barvy podle své situace. Učitel tak získává okamžitý přehled o~třídě a~může efektivně reagovat. Zároveň se tím podporuje vzájemná spolupráce a~vrstevnická výpomoc, která rozvíjí jak žáky, kteří pomoc poskytují, tak ty, kteří ji přijímají.
+Barevné kelímky pomáhají žákům vizuálně vyjádřit, v~jaké fázi práce se právě nachází. Každý má na~lavici sadu kelímků různých barev~--~např.~bílý \quotedblbase pracuji``, zelený \quotedblbase mám hotovo a~mohu pomoci``, žlutý \quotedblbase potřebuji pomoc od~spolužáka`` a~červený \quotedblbase nerozumím a~potřebuji pomoc učitele``. Žák jednoduše postaví na~lavici kelímek dané barvy podle své situace. Učitel tak získává okamžitý přehled o~třídě a~může efektivně reagovat. Zároveň se tím podporuje vzájemná spolupráce a~vrstevnická výpomoc, která rozvíjí jak žáky, kteří pomoc poskytují, tak ty, kteří ji přijímají.\cite{eduBarevneKelimky}
 
 \subsubsection{Nedokončené věty}
 
-Nedokončené věty slouží žákům k~tomu, aby na~konci hodiny reflektovali svůj učební proces. Učitel jim nabídne začátek věty, jako např.~\quotedblbase Zlepšil jsem se v\ldots`` nebo \quotedblbase Nejvíce mě zaujalo\ldots``, a~žáci ji dokončí podle svých zkušeností z~hodiny. Tato technika rozvíjí schopnost sebereflexe, podporuje vědomé učení a~pomáhá žákům lépe formulovat, co~potřebují ke~zlepšení. Výhodou je, že se aktivně zapojují i~ti, kteří se v~hodině běžně tolik neprojevují.
+Nedokončené věty slouží žákům k~tomu, aby na~konci hodiny reflektovali svůj učební proces. Učitel jim nabídne začátek věty, jako např.~\quotedblbase Zlepšil jsem se v\ldots`` nebo \quotedblbase Nejvíce mě zaujalo\ldots``, a~žáci ji dokončí podle svých zkušeností z~hodiny. Tato technika rozvíjí schopnost sebereflexe, podporuje vědomé učení a~pomáhá žákům lépe formulovat, co~potřebují ke~zlepšení. Výhodou je, že se aktivně zapojují i~ti, kteří se v~hodině běžně tolik neprojevují.\cite{eduNedokonceneVety}
 
 \subsubsection{Otevřené otázky}
 
-Otevřené otázky rozvíjejí kritické myšlení a~samostatné vyjadřování žáků. Učitel se skrze ně dozvídá více než jen fakta~--~například i~o~emocích nebo způsobu práce žáka. Je třeba klást jasně formulované otázky bez~náznaku správné odpovědi. Tato technika je vhodná pro~hlubší porozumění a~plánování další výuky.
+Otevřené otázky rozvíjejí kritické myšlení a~samostatné vyjadřování žáků. Učitel se skrze ně dozvídá více než jen fakta~--~například i~o~emocích nebo způsobu práce žáka. Je třeba klást jasně formulované otázky bez~náznaku správné odpovědi. Tato technika je vhodná pro~hlubší porozumění a~plánování další výuky.\cite{eduOtevreneOtazky}
 
 \subsubsection{Učební úloha}
 
-Učební úloha slouží k~tomu, aby se žák něco naučil~--~na~rozdíl od~testové, která jen ověřuje. Žáci mohou pracovat samostatně, ve~dvojicích nebo se~zdroji, pokud se úloha zaměřuje na~vyšší kognitivní náročnost. Učební úlohy často fungují jako diagnostický nástroj na~konci hodiny.
+Učební úloha slouží k~tomu, aby se žák něco naučil~--~na~rozdíl od~testové, která jen ověřuje. Žáci mohou pracovat samostatně, ve~dvojicích nebo se~zdroji, pokud se úloha zaměřuje na~vyšší kognitivní náročnost. Učební úlohy často fungují jako diagnostický nástroj na~konci hodiny.\cite{eduUcebniUloha}
 
 \subsubsection{Komplexní způsob hodnocení}
 
-Komplexní hodnocení propojuje formativní a~sumativní přístupy a~vedle známek zahrnuje i~slovní zpětnou vazbu, reflexi a~povzbuzení. Klade důraz na~proces učení, nikoliv jen na~jeho výsledek. Učitel spolu se~žákem sleduje, kde se žák nachází, a~společně hledají cesty ke~zlepšení. Žáci se učí hodnotit nejen práci druhých, ale i~sami sebe, což rozvíjí jejich metakognitivní dovednosti a~zvyšuje zodpovědnost za~vlastní učení. Smyslem tohoto přístupu je nejen zlepšit výsledky, ale vést žáky k~hlubšímu porozumění a~dlouhodobému růstu.
+Komplexní hodnocení propojuje formativní a~sumativní přístupy a~vedle známek zahrnuje i~slovní zpětnou vazbu, reflexi a~povzbuzení. Klade důraz na~proces učení, nikoliv jen na~jeho výsledek. Učitel spolu se~žákem sleduje, kde se žák nachází, a~společně hledají cesty ke~zlepšení. Žáci se učí hodnotit nejen práci druhých, ale i~sami sebe, což rozvíjí jejich metakognitivní dovednosti a~zvyšuje zodpovědnost za~vlastní učení. Smyslem tohoto přístupu je nejen zlepšit výsledky, ale vést žáky k~hlubšímu porozumění a~dlouhodobému růstu.\cite{eduKomplexniZpusobHodnoceni}
 
 
 \section{Životní cyklus softwaru}
@@ -606,7 +616,7 @@ Proces vývoje softwaru je systematický a~strukturovaný přístup, jehož cíl
 
 \subsection{Fáze životního cyklu softwaru}
 
-Životní cyklus softwaru se skládá z~několika základních fází, z~nichž každá plní specifickou funkci a~přispívá k~dosažení cílového produktu. Jednotlivé fáze na~sebe logicky navazují, přičemž jejich průběh může být lineární (např.~vodopádový model) nebo iterativní (např.~agilní přístupy).
+Životní cyklus softwaru se skládá z~několika základních fází, z~nichž každá plní specifickou funkci a~přispívá k~dosažení cílového produktu. Jednotlivé fáze na~sebe logicky navazují, přičemž jejich průběh může být lineární (např.~vodopádový model) nebo iterativní (např.~agilní přístupy).\cite{softwaroveInzenyrstviSem1}
 
 \subsubsection{Analýza}
 
@@ -625,7 +635,7 @@ V~rámci analýzy požadavků se požadavky často rozdělují do~tří kategori
 \begin{itemize}
 	\item \textbf{normální požadavky (normal)}~--~standardní funkce, které uživatelé očekávají, např.~možnost přihlášení,
 	\item \textbf{očekávané požadavky (expected)}~--~základní vlastnosti, které musí software splňovat, jako je stabilita nebo bezpečnost,
-	\item \textbf{vzrušující požadavky (exciting)}~--~nadstandardní funkce, které uživatele příjemně překvapí a~odlišují software od~konkurence, například personalizované doporučování obsahu.
+	\item \textbf{vzrušující požadavky (exciting)}~--~nadstandardní funkce, které uživatele příjemně překvapí a~odlišují software od~konkurence, například personalizované doporučování obsahu.\cite{analyzaPozadavku}
 \end{itemize}
 
 Výstupem analýzy je dokumentace požadavků, často ve~formě specifikace, uživatelských příběhů nebo případů užití, které slouží jako referenční bod pro~další fáze.
@@ -643,7 +653,7 @@ Mezi hlavní činnosti v~této fázi patří:
 	\item definice API a~způsobu integrace s~dalšími systémy.
 \end{itemize}
 
-Výstupem této fáze jsou technické dokumenty, diagramy (např.~UML diagramy), specifikace rozhraní a~někdy i~první prototypy, které umožňují ověřit správnost návrhu před zahájením vývoje.
+Výstupem této fáze jsou technické dokumenty, diagramy (např.~UML diagramy), specifikace rozhraní a~někdy i~první prototypy, které umožňují ověřit správnost návrhu před zahájením vývoje.\cite{softwaroveInzenyrstviSem3}
 
 \subsubsection{Vývoj}
 
@@ -674,7 +684,7 @@ Fáze testování je zásadní částí životního cyklu softwaru, která zaji�
 	\item \textbf{Regresní testování:} Kontrola, že nové změny v~kódu nezpůsobily problémy ve~stávající funkcionalitě.
 \end{itemize}
 
-Moderní vývoj softwaru často zahrnuje automatizované testování, které umožňuje rychlé a~opakované provádění testů, čímž se zvyšuje efektivita celého procesu. Automatizace je často součástí \textit{CI pipeline} (Continuous Integration), která umožňuje, aby každá změna v~kódu byla automaticky zkontrolována, otestována a~integrována do~hlavní větve projektu. Díky tomu mohou vývojáři rychle odhalit chyby, minimalizovat rizika při slučování kódu a~zefektivnit spolupráci v~týmu.
+Moderní vývoj softwaru často zahrnuje automatizované testování, které umožňuje rychlé a~opakované provádění testů, čímž se zvyšuje efektivita celého procesu. Automatizace je často součástí \textit{CI pipeline} (Continuous Integration), která umožňuje, aby každá změna v~kódu byla automaticky zkontrolována, otestována a~integrována do~hlavní větve projektu. Díky tomu mohou vývojáři rychle odhalit chyby, minimalizovat rizika při slučování kódu a~zefektivnit spolupráci v~týmu.\cite{testing}
 
 Výstupem této fáze je produkt, který je připraven pro~uživatelské testování nebo nasazení do~produkčního prostředí.
 
@@ -691,6 +701,8 @@ Fáze údržby softwaru hraje klíčovou roli v~jeho životním cyklu, neboť za
 	\item \textbf{Zákon invariantní spotřeby práce:} Celkový pokrok při vývoji softwaru je stabilní a~nezávisí přímo na~množství vynaložených zdrojů.
 	\item \textbf{Zákon omezené velikosti přírůstku:} Překročení limitu množství změn v~jedné verzi může vést k~vážným problémům s~kvalitou a~stabilitou systému.
 \end{itemize}
+\noindent
+\textit{Převzato z~\cite{legmanovyZakony}.}
 
 Údržba je často nejdelší a~nákladově nejnáročnější částí životního cyklu, protože zahrnuje průběžnou práci na~již nasazeném softwaru.
 
@@ -708,6 +720,8 @@ Efektivní práce v~týmu a~správné řízení projektů jsou klíčovými fakt
 		\item \textbf{Scrum master:} Koordinuje tým, zajišťuje dodržování Scrum metodiky, pomáhá odstraňovat překážky a~spolupracuje s~product ownerem na výběru požadavků do sprint backlogu, které se budou vyvíjet v aktuálním sprintu (iteraci).
 		\item \textbf{Tým vývojářů:} Realizuje zadané úkoly, vytváří funkční řešení a~dodává výsledky v~rámci sprintů.
 	\end{itemize}
+	\noindent
+	\textit{Volně přeloženo z~\cite{scrum}.}
 	
 	\item \textbf{Waterfall (vodopád):} Tradiční lineární model, kde jednotlivé fáze (analýza, návrh, vývoj, testování, nasazení) probíhají sekvenčně. Každá fáze musí být dokončena, než se přejde k~další. Vhodné pro~projekty s~pevně definovanými požadavky.
 	
@@ -720,7 +734,7 @@ Efektivní práce v~týmu a~správné řízení projektů jsou klíčovými fakt
 
 \subsubsection{Verzování kódu}
 
-\textit{Git} je dnes nejpoužívanějším nástrojem pro~správu verzí. Umožňuje sledovat změny kódu, pracovat paralelně na~různých větvích a~řešit konflikty.
+\textit{Git} je dnes nejpoužívanějším nástrojem pro~správu verzí. Umožňuje sledovat změny kódu, pracovat paralelně na~různých větvích a~řešit konflikty.\cite{git}
 
 \needspace{4\baselineskip}
 \textbf{Pracovní postup v~Gitu:}
@@ -734,7 +748,7 @@ Práce v~týmu a~správná správa verzí jsou základními stavebními kameny m
 
 \subsection{DevOps a~CI/CD pipeline}
 
-\textit{DevOps} je moderní přístup k~vývoji softwaru, který propojuje vývojové a~provozní týmy, aby zefektivnil a~automatizoval procesy od~psaní kódu až po~nasazení softwaru. Klíčovým prvkem DevOps je \textit{CI/CD pipeline} (Continuous Integration / Continuous Deployment), která umožňuje průběžnou integraci, testování a~nasazení softwaru.
+\textit{DevOps} je moderní přístup k~vývoji softwaru, který propojuje vývojové a~provozní týmy, aby zefektivnil a~automatizoval procesy od~psaní kódu až po~nasazení softwaru. Klíčovým prvkem DevOps je \textit{CI/CD pipeline} (Continuous Integration / Continuous Deployment), která umožňuje průběžnou integraci, testování a~nasazení softwaru.\cite{cicd}
 
 \newpage
 
@@ -1997,7 +2011,7 @@ V~GitHub repozitáři se nachází tyto externí přílohy:
 	ki-thesis.pdf & text práce v~PDF \\
 	ki-thesis.tex & zdrojový kód práce v~\LaTeX{}u \\
 	kitheses.cls & definice třídy dokumentů (rozšířená třída \texttt{scrbook})\\
-	%thesis.bib & bibliografická databáze (exportována z~citace.com) \\
+	thesis.bib & bibliografická databáze \\
 	images & složka se všemi použitými obrázky \\
 	codes & zdrojové kódy použité v~této práci \\
 	diagrams\_svg & diagramy ve~formátu SVG \\
