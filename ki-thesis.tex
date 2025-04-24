@@ -51,10 +51,9 @@
 
 \usepackage{csquotes} % uvozovky
 
-% TODO: fix cit a url %
 \usepackage[
 backend   = biber,
-style     = numeric,
+style     = iso,
 citestyle = numeric,
 sorting   = none,
 url       = true
@@ -142,10 +141,9 @@ url       = true
 
 % TODO: Tohle smaž na konci %
 \hbadness=10001
-
+% TODO: Podepsaný PDF %
 \usepackage{float}
 \usepackage{needspace}
-%\usepackage[draft]{graphicx} % TODO: SMAŽ DRAFT %
 \usepackage{graphicx}
 
 
@@ -249,9 +247,9 @@ V Ústí nad Labem dne \today   \hfill Podpis: \makebox[4cm][s]{\dotfill}
 
 \textbf{Abstrakt:}
 
-Tato bakalářská práce se zabývá vývojem dvou navzájem propojených webových aplikací\,--\,EDUBO a~Eduklub~--~plány výuky. Cílem projektu bylo vytvořit softwarový nástroj pro~plánování výuky, který umožní pedagogům, zejména začínajícím, snadno sestavovat a~upravovat výukové hodiny pomocí editoru s~připravenými výukovými aktivitami. Aplikace~EDUBO zároveň nabízí pohled pro~studenty, kteří v~ní mohou nahlížet do~aktuálních, budoucích i~minulých výukových plánů, včetně materiálů a~zpětné vazby. Druhá aplikace, Eduklub~--~plány výuky, slouží jako veřejně dostupný webový agregátor výukových plánů, které mohou být sdíleny a~znovu využity dalšími pedagogy. Vývoj probíhal ve~spolupráci s~Pedagogickou fakultou Univerzity Karlovy, která poskytla odborný obsah a~podílela se na~testování. Výstupem práce je funkční softwarové řešení, ověřené v~praxi více než~250 studenty pedagogických fakult a~připravené k~dalšímu rozšiřování.
+Tato bakalářská práce se zabývá vývojem dvou navzájem propojených webových\break aplikací~--~EDUBO a~Eduklub~--~plány výuky. Hlavním cílem projektu bylo navrhnout a~realizovat softwarové řešení, které usnadní plánování výuky především začínajícím učitelům. Výsledkem je prostředí, ve~kterém lze pomocí přehledného editoru sestavovat výukové hodiny z~připravených výukových aktivit. První aplikace, EDUBO, slouží pedagogům k~tvorbě, organizaci a~publikaci výukových plánů a~zároveň nabízí samostatný pohled pro~studenty, kteří v~ní mohou nahlížet do~aktuálních, budoucích i~minulých výukových hodin~--~včetně výukových materiálů a~možnosti poskytování zpětné vazby. Druhá aplikace, Eduklub~--~plány výuky, představuje veřejně dostupný webový agregátor, který umožňuje sdílení výukových plánů mezi pedagogy napříč školami a~podporuje spolupráci v~rámci vzdělávací komunity. Vývoj probíhal ve~spolupráci s~Pedagogickou fakultou Univerzity Karlovy, která poskytla odborný obsah a~podílela se na~testování. Výstupem práce je funkční softwarové řešení, ověřené v~praxi více než~250 studenty pedagogických fakult a~připravené k~dalšímu rozšiřování.
 
-\textbf{Klíčová slova:} plánování výuky, výukové plány, EDUBO, Eduklub~--~plány~výuky, didaktický nástroj
+\textbf{Klíčová slova:} didaktika, plánování výuky, počítačem podporované plánování výuky, EDUBO, Eduklub~--~plány~výuky
 
 \bigskip
 
@@ -260,9 +258,9 @@ Tato bakalářská práce se zabývá vývojem dvou navzájem propojených webov
 
 \textbf{Abstract:}
 
-The abstract states the main topic of the thesis and mainly its outcomes. The length of the abstract should be at least eighty words (however, abstracts and keywords must fit on a page)
+This bachelor's thesis focuses on the development of two interconnected web\break applications~--~EDUBO and Eduklub~--~teaching~plans. The main objective of the project was to design and implement a~software solution that facilitates lesson planning, particularly for novice teachers. The outcome is an environment where users can create lesson plans using a~clear and intuitive editor with pre-defined teaching activities. The first application, EDUBO, serves teachers in creating, organizing, and publishing lesson plans and also offers a~separate interface for students, allowing them to view current, upcoming, and past lessons~--~including all teaching materials and feedback options. The second application, Eduklub~--~teaching~plans, is a~publicly accessible web aggregator that enables the sharing of lesson plans among teachers across schools and supports collaboration within the educational community. The development was carried out in cooperation with the Faculty of Education at Charles University, which provided expert content and participated in testing. The result of the thesis is a~functional software solution, verified in practice by more than 250 students of faculties of education and ready for further development and implementation.
 
-\textbf{Keywords:} three to five key words or terms to facilitate a possible search of the thesis, in order from more general to more specific
+\textbf{Keywords:} didactics, lesson planning, computer-aided design, EDUBO, Eduklub~--~teaching~plans
 
 \tableofcontents
 
@@ -277,6 +275,8 @@ Primární cílovou skupinou aplikace jsou začínající učitelé, kteří se 
 Aplikace byla vyvíjena ve~spolupráci s~Pedagogickou~fakultou~Univerzity~Karlovy, jejíž zástupci se podíleli na~návrhu výukových aktivit, přípravě metodických návodů a~průběžném testování nástroje. Díky jejich zpětné vazbě bylo možné aplikaci přizpůsobovat skutečným potřebám pedagogů.
 
 Vývoj byl součástí několika výzkumných záměrů, mimo jiné v~rámci projektů \textit{Vývoj specifického SW nástroje pro plánování výuky} (DataPLEX~Consulting,~s.r.o.), \textit{Inovativní software pro rozvoj moderní výuky na~základních a~středních školách} (Databig~s.r.o.) a~\textit{Inovativní SW nástroj pro podporu moderní výuky} (Mr.~Cloud~s.r.o.).
+
+\newpage
 
 Cílem závěrečné práce je především popsat metodiku vývoje tohoto nástroje, včetně technického návrhu, spolupráce s~pedagogy a~ověření funkčnosti aplikace v~praxi. Hlavním výstupem je funkční aplikace \textit{EDUBO}, která byla testována uživateli a~jejímž prostřednictvím vzniklo přes~200~výukových~plánů vytvořených pedagogy z~Pedagogické~fakulty~Univerzity~Karlovy a~přes~250~výukových~plánů vytvořených studenty z~Pedagogické~fakulty~Univerzity~Jana~Evangelisty~Purkyně.
 
@@ -587,7 +587,7 @@ Losovátka přinášejí do~výuky prvek náhody a~spravedlnosti. Učitel si př
 
 \subsubsection{Think~--~Pair~--~Share}
 
-\textit{Think~--~Pair~--~Share~(Mysli~--~Diskutuj~ve~dvojici~--~Sdílej)} dává žákům čas na~přemýšlení, diskuzi a~následné sdílení. Učitel nejprve položí otázku, pak žáci diskutují ve~dvojicích, a~nakonec jeden z~nich odpoví. Tato metoda podporuje hlubší zamyšlení a~spolupráci. Introverti mají šanci připravit si odpověď, extroverti se učí strukturovat své myšlenky.\cite{eduThinkPairShare}
+\textit{Think~--~Pair~--~Share} dává žákům čas na~přemýšlení, diskuzi a~následné sdílení. Učitel nejprve položí otázku, pak žáci diskutují ve~dvojicích, a~nakonec jeden z~nich odpoví. Tato metoda podporuje hlubší zamyšlení a~spolupráci. Introverti mají šanci připravit si odpověď, extroverti se učí strukturovat své myšlenky.\cite{eduThinkPairShare}
 
 \subsubsection{Barevné kelímky}
 
@@ -661,7 +661,7 @@ Výstupem této fáze jsou technické dokumenty, diagramy (např.~UML diagramy),
 
 Fáze vývoje představuje proces implementace návrhu systému do~podoby funkčního softwaru. V~této fázi vývojáři píší kód podle specifikací vytvořených v~předchozích fázích. Kromě programování probíhá také integrace jednotlivých komponent a~jejich příprava pro~testování.
 
-\needspace{5\baselineskip}
+\needspace{7\baselineskip}
 Hlavní činnosti zahrnují:
 \begin{itemize}
 	\item \textbf{Implementace funkcionalit.} Vývojáři vytvářejí kód pro~jednotlivé moduly aplikace (frontend i~backend).
@@ -711,6 +711,8 @@ Fáze údržby softwaru hraje klíčovou roli v~jeho životním cyklu, neboť za
 \subsection{Práce v~týmu a~verzování}
 
 Efektivní práce v~týmu a~správné řízení projektů jsou klíčovými faktory úspěchu při vývoji softwaru. Různé metodiky jako je \textit{Scrum}, \textit{Kanban} nebo \textit{Waterfall} určují, jakým způsobem týmy plánují, sledují a~realizují své úkoly. Správa verzí kódu, zajištěná například systémem \textit{Git}, zase umožňuje efektivní spolupráci při vývoji.
+
+\newpage
 
 \subsubsection{Projektové metodiky}
 
@@ -986,50 +988,14 @@ Tento entitně-vztahový diagram popisuje databázovou strukturu pro aplikaci \t
 	\end{itemize}
 \end{itemize}
 
-\newpage % TODO: SMAZAT???? %
+\newpage
 
-\begin{lstlisting}
-class ExtendedItems(Schema):
- name = fields.String(validate=validate.Length(max=1023))
- visibility = fields.String(validate=validate.OneOf(["student", "teacher", "after-lesson"]))
- description = fields.String(validate=validate.Length(max=1023))
- url_to_file = fields.String()
-
-class ActivitySchema(Schema):
- _id = fields.String(validate=validate.Length(equal=36))
- name = fields.String(validate=validate.Length(max=127))
- size = fields.Integer(validate=validate.Range(min=1))
- description = fields.String(validate=validate.Length(max=8191))
- club_url = fields.String()
- icon = fields.String(validate=validate.OneOf(["xxx"]))
- icons = fields.List(fields.String(validate=validate.OneOf(["xxx"])))
- color = fields.String(validate=validate.Length(equal=7))
- files = fields.List(fields.Nested(ExtendedItems))
- urls = fields.List(fields.Nested(ExtendedItems))
- gadgets = fields.List(fields.String(validate=validate.Length(max=255)))
-	
-class ActivityList(Schema):
- _id = fields.String(validate=validate.Length(equal=36))
- activities = fields.List(fields.Nested(ActivitySchema))
-	
-class Rating(Schema):
- id_of_user = fields.String()
- rating = fields.String(validate=validate.OneOf(["downvote", "upvote", "neutral", "unused"]))
-	
-class LessonDatabaseSchema(Schema):
- _id = fields.String(validate=validate.Length(equal=36))
- ts_created = fields.String()
- ts_updated = fields.String()
- name = fields.String(validate=validate.Length(max=68))
- notes = fields.String(validate=validate.Length(max=4095))
- length_in_mins = fields.Integer(validate=validate.Range(min=5, max=720))
- curriculums = fields.List(fields.String)
- goal = fields.String(validate=validate.Length(max=511))
- ratings = fields.List(fields.Nested(Rating))
- activities_list = fields.List(fields.Nested(ActivityList))
- activities_before = fields.List(fields.Nested(ActivitySchema))
- activities_after = fields.List(fields.Nested(ActivitySchema))
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\resizebox{14.875cm}{!}{\includegraphics{code-1.png}}
+	\caption{Část kódu v~jazyce Python popisující ORM schéma aplikace EDUBO.}
+	\label{fig:code-1}
+\end{figure}
 
 Toto schéma definuje strukturu výukového plánu pomocí ORM (Objektově-relační mapování) knihovny Marshmallow v~jazyce Python. Každá lekce je reprezentována třídou\break\texttt{LessonDatabaseSchema}, která obsahuje klíčové informace, jako je název, čas vytvoření, poznámky a~délka lekce. Lekce může mít přiřazené kurikulární výstupy a~definovaný cíl. Klíčovou součástí schématu je seznam aktivit, který je strukturován do~tří hlavních částí~--~běžné aktivity v~hodině (\texttt{activities\_list}), aktivity před hodinou (\texttt{activities\_before}) a~aktivity po hodině (\texttt{activities\_after}). Každá aktivita (\texttt{ActivitySchema}) má své unikátní ID, název, popis, velikost a~další atributy, jako je barva, soubory, URL odkazy a~pomůcky.
 
@@ -1052,7 +1018,6 @@ Popis důležitých tabulek:
 	\begin{itemize}
 		\item \texttt{name}, \texttt{description}: Název a~popis výukového celku.
 		\item \texttt{certificated}: Příznak určující, zda je plán certifikovaný.
-		\item \texttt{number\_of\_lessons}: Počet výukových hodin ve~výukovém celku.
 		\item \texttt{author\_id}: Odkaz na~uživatele, který jednotku vytvořil.
 		\item \texttt{grade\_id}: Ročník, do~kterého výukový celek spadá.
 		\item \texttt{parent\_id}: Odkaz na~rodičovský celek, pokud se~jedná o~mutaci jiného celku.
@@ -1061,7 +1026,7 @@ Popis důležitých tabulek:
 		
 	\end{itemize}
 	
-	\item \textbf{eduklub\_lesson}: Tabulka pro jednotlivé výukové hodiny, které jsou součástí výukových celků.
+	\item \textbf{eduklub\_lesson}: Tabulka pro jednotlivé výukové hodiny.
 	\begin{itemize}
 		\item \texttt{name}: Název výukové hodiny.
 		\item \texttt{preview\_file}: Náhledový HTML soubor výukové hodiny.
@@ -1079,7 +1044,7 @@ Popis důležitých tabulek:
 	\item \textbf{eduklub\_rating}: Tabulka pro hodnocení výukových celků.
 	\begin{itemize}
 		\item \texttt{rating}: Hodnota hodnocení.
-		\item \texttt{creation\_date}, \texttt{author\_id}: Datum vytvoření a~odkaz na~uživatele, který hodnocení vytvořil.
+		\item \texttt{creation\_date}, \texttt{author\_id}: Datum vytvoření a~uživatel, který hodnocení vytvořil.
 	\end{itemize}
 	
 	\item \textbf{eduklub\_ratingcomment}: Obsahuje komentáře k~hodnocením.
@@ -1094,45 +1059,20 @@ Popis důležitých tabulek:
 		\item \texttt{id}, \texttt{name}: Primární klíč a~název typu ročníku.
 	\end{itemize}
 	
-	\item \textbf{eduklub\_grade}: Obsahuje ročníky ze~vzdělávacích stupňů, pro~které je výukový celek určen.
+	\item \textbf{eduklub\_grade}: Obsahuje ročníky ze~vzdělávacích stupňů, pro~které je celek určen.
 	\begin{itemize}
 		\item \texttt{name}, \texttt{grade\_type\_id}: Název ročníku a~odkaz na~typ ročníku.
 	\end{itemize}
 \end{itemize}
 
-\begin{lstlisting}
- class TeachingUnit(models.Model):
-   name = models.CharField(max_length=63)
-   description = models.TextField(null=True, blank=True)
-   certificated = models.BooleanField(default=False)
-   is_recommended = models.BooleanField(default=False)
-   creation_date = models.DateField(auto_now_add=True)
-   is_hidden = models.BooleanField(default=False)
-   number_of_lessons = models.IntegerField()
-   number_of_downloads = models.IntegerField(default=0)
-   zip_file = models.FileField(upload_to='teaching_units/zip_files')
-   language = models.ForeignKey(Language, on_delete=models.PROTECT)
-   author = models.ForeignKey(User, on_delete=models.PROTECT, null=True)
-   tags = models.ManyToManyField(Tag, related_name='teaching_units', blank=True)
-   parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True)
-   alternatives = models.ManyToManyField('self', blank=False)
-   advice_urls = models.ManyToManyField(LinkURL, related_name='advice_urls', blank=True)
-   guide_urls = models.ManyToManyField(LinkURL, related_name='guide_urls', blank=True)
-   subject = models.ForeignKey(Subject, on_delete=models.PROTECT)
-   grade = models.ForeignKey(Grade, on_delete=models.PROTECT)
-   curriculums = models.ManyToManyField(Curriculum, related_name='teaching_units', blank=True)
-   category = models.ForeignKey(Category, on_delete=models.PROTECT, null=True, blank=True)
-	
-  class Lesson(models.Model):
-    name = models.CharField(max_length=63)
-    preview_file = models.FileField(upload_to='lessons/preview_files')
-    teaching_unit = models.ForeignKey(TeachingUnit, on_delete=models.CASCADE, related_name='lessons')
-	
-  class Category(models.Model):
-    name = models.CharField(max_length=63)
-    parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='children')
-    subject = models.ForeignKey(Subject, on_delete=models.PROTECT, blank=True, null=True)
-\end{lstlisting}
+\bigskip
+
+\begin{figure}[H]
+	\centering
+	\resizebox{16cm}{!}{\includegraphics{code-2.png}}
+	\caption{Část kódu v~jazyce Python popisující ORM schéma aplikace Eduklub~--~plány~výuky.}
+	\label{fig:code-2}
+\end{figure}
 
 Toto schéma definuje strukturu výukového celku a~jeho jednotlivých lekcí pomocí ORM Django. \texttt{TeachingUnit} reprezentuje výukový celek s~atributy jako název, popis, počet lekcí a~soubor ke~stažení. Každý výukový celek může mít rodičovský celek (\texttt{parent}), což umožňuje vytváření mutací. \texttt{Lesson} představuje jednotlivé lekce a~obsahuje soubor náhledu ve~formátu HTML. \texttt{Category} pak slouží k~tematickému zařazení výukových celků. Kategorie mohou být hierarchicky uspořádané pomocí vazby \texttt{parent}, což umožňuje vytvářet nadřazené a~podřazené skupiny.
 
@@ -1240,7 +1180,7 @@ Pro databázovou vrstvu byly v~projektech \textit{EDUBO} a~\textit{Eduklub~--~pl
 
 \subsubsection{EDUBO: MongoDB}
 
-MongoDB byla původně vybrána díky své flexibilitě při ukládání nestrukturovaných dat. Její schopnost pracovat s~dokumenty ve~formátu JSON, které jsou interně ukládány ve~formátu BSON (binární JSON), umožnila snadné ukládání nestrukturovaných dat z~frontendu a~efektivnější práci s~daty díky optimalizovanému ukládání a~rychlému přístupu.
+MongoDB byla původně vybrána díky své flexibilitě při ukládání nestrukturovaných dat. Její schopnost pracovat s~dokumenty ve~formátu JSON, které jsou interně ukládány ve~formátu BSON, umožnila snadné ukládání nestrukturovaných dat z~frontendu a~efektivnější práci s~daty díky optimalizovanému ukládání a~rychlému přístupu.
 
 \needspace{4\baselineskip}
 Hlavní výhody MongoDB zahrnují:
@@ -1479,46 +1419,12 @@ Výukový plán lze exportovat do~PDF formátu, což umožňuje učitelům mít 
 
 \newpage
 
-\begin{lstlisting}
-{% if lesson['activities_list'] %}
- {% set total_time = namespace(value=0) %}
- {% for list_of_activities in lesson['activities_list'] %}
-  {% if list_of_activities['activities'] %}
-   {% set total_time.value = total_time.value + list_of_activities['activities'][0]['size'] %}
-   {% set parallel_activities_count = list_of_activities['activities']|length %}
-  {% endif %}
-  {% if loop.index == last_activity_row_index %}
-   {% set is_last_row = true %}
-  {% endif %}
-  {% for activity in list_of_activities['activities'] %}
-   <section class="activity">
-    <div class="grid grid-cols-24 gap-y-4 mt-12">
-     <div class="col-span-2 text-center text-lg font-semibold">
-      {% if is_last_row %}
-       {% if loop.index == 1 %}
-        <p>{{ total_time.value }} min</p>
-       {% endif %}
-      {% elif loop.index == 1 %}
-       <p>{{ total_time.value }} min</p>
-       <div 
-        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
-        style="height: calc(100% + 1.25rem);"></div>
-      {% elif loop.last %}
-       <div
-        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
-        style="height: calc(100% + 3rem);"></div>
-      {% else %}
-       <div
-        class="timeline {% if parallel_activities_count > 1 %}double{% endif %}"
-        style="height: calc(100% + 3.5rem);"></div>
-      {% endif %}
-     </div>
-    </div>
-   </section>
-  {% endfor %}
- {% endfor %}
-{% endif %}
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\resizebox{16cm}{!}{\includegraphics{code-3.png}}
+	\caption{Část kódu v~jazyce Jinja2 popisující tvorbu časové osy v~PDF.}
+	\label{fig:code-3}
+\end{figure}
 
 Tento úryvek Jinja2 kódu slouží k~vygenerování časové osy v~PDF výukového plánu. Prochází seznam aktivit v~hodině a~postupně sčítá jejich časovou délku. Dynamicky vykresluje minutové značky a~určuje, zda jsou aktivity v~rámci jedné časové jednotky vykonávány paralelně. Pomocí podmínek nastavuje vzhled časové osy, například přidáním dvojité časové linie pro~paralelní aktivity. Výstupem je přehledná vizualizace struktury hodiny se~správným časovým rozvržením jednotlivých aktivit.
 
@@ -1529,50 +1435,12 @@ Tento úryvek Jinja2 kódu slouží k~vygenerování časové osy v~PDF výukov�
 	\label{fig:edubo-3}
 \end{figure}
 
-\begin{lstlisting}
-<div class="col-start-3 col-span-2 flex justify-center">
- <img
-  src="{{ url_for('static', filename='icons/' + icons.get(activity['color']) + '.png') }}"
-  class="activitytype-icon">
-</div>
-<div class="col-span-20">
- <h1 class="dynamic-header text-xl font-bold">{{ activity.name }}</h1>
- <div class="flex items-baseline my-2">
-  {% if 'icons' in activity %}
-   {% for icon in activity['icons'] %}
-    {% if icon != "" %}
-     <img
-      src="{{ url_for('static', filename='activity-icons/' + icon + '.png') }}"
-      class="activity-icon">
-    {% endif %}
-   {% endfor %}
-  {% endif %}
- </div>
- <div class="flex flex-wrap items-baseline space-x-1 mt-1">
-  {% if html_tags_remover(newlines_remover(activity['description'])) != "" %}
-   <p>
-    <span class="font-bold">Popis: </span>
-     {{ html_tags_remover(html_entity_replacer(activity.description)) }}
-   </p>
-  {% endif %}
- </div>
- <div class="flex items-baseline space-x-1 mt-1">
-  {% if activity['gadgets'] and activity['gadgets']|reject('equalto', '')|list %}
-   <span><h1 class="text-base font-semibold">Pomůcky:</h1></span>
-   <p>{{ empty_string_remover(activity['gadgets'])|join(', ') }}</p>
-  {% endif %}
- </div>
-  {% set visibileurls = visibility_normalizer(activity['urls'], view) %}
-  {% if visibileurls | length > 0 %}
-   <h1 class="text-base font-semibold mt-1">Odkazy:</h1>
-  {% for url in visibileurls %}
-   {% if url != "" %}
-    <p class="text-sm mt-1 underline">{{ url|urlize(target='_blank') }}</p>
-   {% endif %}
-  {% endfor %}
- {% endif %}
-</div>
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\resizebox{16cm}{!}{\includegraphics{code-4.png}}
+	\caption{Část kódu v~jazyce Jinja2 popisující generaci jednotlivých aktivit v~PDF.}
+	\label{fig:code-4}
+\end{figure}
 
 Tento Jinja2 kód generuje jednotlivé sekce aktivit ve~výukovém plánu PDF. Každá aktivita je vizuálně reprezentována pomocí ikony, názvu, popisu a~případných pomůcek. Kód také dynamicky načítá a~zobrazuje seznam připojených odkazů, pokud jsou k~dispozici. Všechny textové vstupy jsou ošetřeny proti nežádoucím HTML značkám a~speciálním znakům, aby byl výstup čistý a~přehledný.
 
@@ -1588,8 +1456,6 @@ Tento Jinja2 kód generuje jednotlivé sekce aktivit ve~výukovém plánu PDF. K
 Uživatelské menu poskytuje pedagogům správu a~publikaci výukových plánů. Uživatel může v~navigační liště nahrávat výukové plány, výukové celky nebo soubory výukových celků ve~formátu ZIP, přičemž je podporována integrace s~webovým agregátorem výukových plánů. Dále je možné nahrávat vlastní kurikulární výstupy ve~formátu CSV. Další funkcí je generování registračních klíčů, které studenty automaticky přiřadí do~odpovídajících tříd. Menu také umožňuje změnit režim zobrazení~--~lineární režim, kde uživatel nejprve vybírá třídu a~následně předmět, nebo dynamický režim, kde může být volba předmětu provedena před výběrem třídy.
 
 Uživatelé mají přístup k~seznamům tříd, předmětů, výukových celků a~jednotlivých hodin, přičemž všechny tyto položky mohou přidávat, upravovat a~mazat. Pro~pohodlnou organizaci obsahu je možné využít drag and drop interakce, který usnadňuje řazení výukových položek. Při vytváření třídy lze vybrat z~již existujících tříd a~automaticky se~tak uživatel přiřadí do~dané třídy. V~rámci editace předmětu může pedagog přiřadit již přednastavené kurikulární výstupy nebo nahrát vlastní. Výukové celky je možné doplnit o~poznámky.
-
-\newpage
 
 V~pravé části menu se~nachází informace o~konkrétní hodině spolu s~možností její publikace. Uživatel může nastavit čas a~datum zveřejnění, po~kterém se~daná hodina zobrazí v~uživatelském rozhraní studentů.
 
@@ -1608,40 +1474,12 @@ Struktura tříd, předmětů, výukových celků a~plánů je spravována pomoc
 
 Pro~podporu drag and drop interakce byly do~menu integrovány providery \texttt{DndContext}\break a~\texttt{SortableContext}, které umožňují přetahování a~řazení prvků. Samotné přetahovatelné položky jsou reprezentovány komponentou \texttt{SortableItem}, která se~stará o~jejich správné zobrazení a~interaktivitu v~rámci menu.
 
-% TODO: TADY ZMĚNIT KÓD JESTLI TO BUDE KÓD %
-\begin{lstlisting}
-const modalAddLessonCallback = async (oldValue: string) => {
- const value = oldValue.trim();
- if (!userData) return console.error("UserData are missing!");
- if (value === "") return openErrorSnackbar("Hodina musí mít název!");
- if (value.length > 63) return openErrorSnackbar("Název nesmí být delší než 63 znaků!");
-
- const newUserData: iUserData = JSON.parse(JSON.stringify(userData));
-	
- const indexes = getActiveItemsIndexes();
- const lessons = newUserData
-  .classes[indexes.activeClassIndex]
-  .subjects[indexes. activeSubjectIndex]
-  .teaching_units[indexes.activeTeachingUnitIndex]
-  .lessons;
-	
- if (lessons.find((item) => (item.name === value)))
-  return openErrorSnackbar("Hodina se stejným názvem již existuje!");
-	
- const newLesson: iMenuLesson = {
-  _id: uuidv4(),
-  name: value,
-  published: false,
-  days_of_usage: []
- };
- lessons.push(newLesson);
-
- await Promise.all([
-  updateClasses(newUserData.classes),
-  updateLesson(newLesson._id, newLesson.name)
- ]);
-};
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\resizebox{16cm}{!}{\includegraphics{code-5.png}}
+	\caption{Část kódu v~jazyce TypeScript popisující proces vytváření nového výukového plánu.}
+	\label{fig:code-5}
+\end{figure}
 
 Tato funkce je určena k~vytvoření nového výukového plánu. Jejím parametrem je řetězec představující název nového plánu. Na začátku probíhá kontrola, zda zadaný název splňuje všechny potřebné podmínky, jako je prázdný název nebo překročení maximální délky. Následně se vytvoří kopie uživatelských dat, která je připravena pro další úpravy.
 
@@ -1781,31 +1619,12 @@ Tento komponentní diagram znázorňuje architekturu React komponent používan�
 
 Důležitou částí je komponenta \texttt{ExtendedFilter}, která nabízí pokročilé filtrování výukových plánů. Umožňuje uživatelům vybírat předměty, ročníky a~jazyky prostřednictvím rozbalovacích menu, reprezentovaných komponentami \texttt{Dropdown}. Samotné výsledky vyhledávání jsou reprezentovány komponentou \texttt{SearchUnit}, která zobrazuje jednotlivé výukové celky. Každá karta výukového plánu obsahuje komponentu \texttt{ProfileBadge}, jež zobrazuje informace o~autorovi a~\texttt{HeartButton}, který umožňuje přidat plán do~oblíbených.
 
-% TODO: TADY ZMĚNIT KÓD JESTLI TO BUDE KÓD %
-\begin{lstlisting}
-export const getCachedCategories = async () => {
- const cachedObject = sessionStorage.getItem("categories");
- if (cachedObject) {
-  const objects: TSubjectWithCategories[] = JSON.parse(cachedObject);
-  if (objects) {
-   return objects;
-  }
- }
-
- const response = await axios.get("/api/categories/subjects");
- if (response.status === 404) {
-  return [blankSubjectWithCategories];
- }
- const loadedObject: TSubjectWithCategories[] =
-  response.data.sort((a:Category, b:Category) => a.id - b.id);
-
- sessionStorage.setItem("categories", JSON.stringify(loadedObject));
- if (loadedObject) {
-  return loadedObject;
- }
- return [blankSubjectWithCategories];
-};
-\end{lstlisting}
+\begin{figure}[H]
+	\centering
+	\resizebox{14cm}{!}{\includegraphics{code-6.png}}
+	\caption{Část kódu v~jazyce TypeScript popisující proces načítání seznamu kategorií.}
+	\label{fig:code-6}
+\end{figure}
 
 Tato funkce \texttt{getCachedCategories} slouží k~efektivnímu načítání seznamu kategorií s~využitím mezipaměti (\texttt{sessionStorage}). Nejprve se pokusí načíst uložená data ze~\texttt{sessionStorage} pomocí klíče \texttt{categories}. Pokud jsou kategorie v~mezipaměti, převedou se zpět na~objekt a~ihned se vrátí, čímž se šetří volání na~server.
 
