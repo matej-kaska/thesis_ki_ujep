@@ -139,12 +139,15 @@ url       = true
 % vlastní začátek dokumentu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% TODO: Podepsaný PDF %
 % TODO: Tohle smaž na konci %
 \hbadness=10001
-% TODO: Podepsaný PDF %
+
+% Vlastní packages %
 \usepackage{float}
 \usepackage{needspace}
 \usepackage{graphicx}
+\usepackage{pdfpages}
 
 
 \graphicspath{{images/}}
@@ -190,22 +193,8 @@ Studijní program:       & \program\\
 \end{center}
 
 \cleardoublepage
-\thispagestyle{empty}
-\pagecolor{yellow}
-{\Large Namísto žlutých stránek vložte digitálně podepsané zadání kvalifikační práce poskytnuté vedoucím katedry.\\\
-Zadání musí zaujímat právě dvě strany.
-}
 
-Zadání je nutno vložit jako PDF pomocí některého nástroje, který umožňuje editaci dokumentů (se zachováním
-elektronického podpisu).
-
-V Linuxe lze například použít příkaz \texttt{pdftk}.
-
-\clearpage
-\thispagestyle{empty}
-\afterpage{\nopagecolor}
-~
-\clearpage
+%\includepdf[pages=1-2]{zadani-bakalarske-prace.pdf}
 
 \thispagestyle{empty} 
 {\bfseries Prohlášení}
@@ -420,7 +409,7 @@ Jednou z~klíčových aktivit v~rámci evokace je aktivace vstupních znalostí,
 Další důležitou aktivitou v~úvodu hodiny je sdělení výukového cíle. Dobře formulovaný cíl by měl být konkrétní, ověřitelný a~formulovaný z~pohledu žáka~--~např.~\quotedblbase žák na~konci hodiny rozliší\ldots``. Formulace cílů může vycházet z~Bloomovy taxonomie nebo její revidované verze, která rozlišuje dimenzi znalostí a~kognitivních procesů. Stanovení cíle dává výuce směr a~umožňuje učiteli i~žákovi reflektovat pokrok.\cite{eduStanoveniCilu}
 
 \subsection{Hodnocení}
-Hodnocení je jednou ze~součástí vzdělávacího procesu. Jeho cílem je poskytnout žákům zpětnou vazbu a~podporu pro~jejich další učení a~rozvoj. Mělo by být konstruktivní, pozitivní a~objektivní. Hodnocení neslouží jen ke~klasifikaci, ale i~k~identifikaci oblastí, na~kterých je třeba dále pracovat. Důležité je vytvořit podpůrné a~bezpečné prostředí, kde stres z~výsledků není překážkou v~učení. Hodnocení tak může být nástrojem rozvoje, ne trestu.\cite{eduHodnoceni}
+Hodnocení je jednou ze~součástí vzdělávacího procesu. Jeho cílem je poskytnout žákům zpětnou vazbu a~podporu pro~jejich další učení a~rozvoj. Mělo by být konstruktivní, pozitivní a~objektivní. Hodnocení neslouží jen ke~klasifikaci, ale i~k~identifikaci oblastí, na~kterých je třeba dále pracovat. Důležité je vytvořit podpůrné a~bezpečné prostředí, kde stres z~výsledků není překážkou v~učení. Hodnocení tak může být nástrojem rozvoje, ne trestu.\cite{eduHodnoceni}\cite[s.~145]{didaktika}
 
 \newpage
 
@@ -1102,7 +1091,7 @@ Monolitická architektura umožnila integrovat všechny části aplikace do~jedn
 
 Pro~oba projekty \textit{EDUBO} a~\textit{Eduklub~--~plány výuky}, byl jako frontendová technologie zvolen React, což je populární framework pro~tvorbu uživatelských rozhraní. Tento výběr byl založen především na~zkušenostech týmu a~požadavcích na~rychlé a~dynamické uživatelské rozhraní.
 
-React umožňuje vytvářet komponentově orientované aplikace, což znamená, že jednotlivé části uživatelského rozhraní (například tlačítka, formuláře nebo karty) jsou vytvořeny jako samostatné komponenty, které lze znovu použít v~různých částech aplikace. Tato modularita usnadňuje nejen vývoj, ale také údržbu a~rozšiřování systému.
+React umožňuje vytvářet komponentově orientované aplikace, což znamená, že jednotlivé části uživatelského rozhraní (například tlačítka, formuláře nebo karty) jsou vytvořeny jako samostatné komponenty, které lze znovu použít v~různých částech aplikace. Tato modularita usnadňuje nejen vývoj, ale také údržbu a~rozšiřování systému.\cite[s.~109]{react}
 
 \needspace{9\baselineskip}
 Důvody výběru Reactu:
@@ -1124,7 +1113,7 @@ Backendová část aplikací \textit{EDUBO} a~\textit{Eduklub~--~plány výuky} 
 
 \subsubsection{EDUBO: Flask}
 
-Flask byl vybrán pro~\textit{EDUBO} především díky své jednoduchosti, rychlému nastavení a~zkušenostem týmu. Flask je mikro-framework v~Pythonu, který umožňuje vývojářům flexibilně přizpůsobit architekturu projektu jejich potřebám.
+Flask byl vybrán pro~\textit{EDUBO} především díky své jednoduchosti, rychlému nastavení a~zkušenostem týmu. Flask je mikro-framework v~Pythonu, který umožňuje vývojářům flexibilně přizpůsobit architekturu projektu jejich potřebám. Python je interpretovaný jazyk známý svou čitelností a~jednoduchou syntaxí, která umožňuje velmi rychlý vývoj webových aplikací.\cite{python}
 
 \needspace{7\baselineskip}
 Mezi klíčové výhody Flasku patří:
@@ -1138,7 +1127,7 @@ Mezi klíčové výhody Flasku patří:
 Nicméně během vývoje se objevily i~významné nevýhody:
 \begin{itemize}
 	\item \textbf{Chybějící migrace:} Nutnost manuálních úprav databázové struktury zpomalovala vývoj a~zvyšovala pravděpodobnost chyb.
-	\item \textbf{Základní správa uživatelů:} Omezené možnosti nativní autentizace a~správy uživatelských práv si vyžádaly dodatečnou práci.
+	\item \textbf{Základní správa uživatelů:} Omezené možnosti nativní autentizace a~správy uživatelských práv si vyžádaly dodatečnou práci.\cite[s.~164]{flask}
 	\item \textbf{Absence jasné struktury:} Flexibilita může být nevýhodou u~větších projektů, kde chybí standardizovaný přístup k~organizaci kódu.
 \end{itemize}
 
@@ -1831,6 +1820,7 @@ V~GitHub repozitáři se nachází tyto externí přílohy:
 	ki-thesis.tex & zdrojový kód práce v~\LaTeX{}u \\
 	kitheses.cls & definice třídy dokumentů (rozšířená třída \texttt{scrbook})\\
 	thesis.bib & bibliografická databáze \\
+	zadani-bakalarske-prace.pdf & digitálně podepsané zadání bakalářské práce\\
 	images & složka se všemi použitými obrázky \\
 	codes & zdrojové kódy použité v~této práci \\
 	diagrams\_svg & diagramy ve~formátu SVG \\
