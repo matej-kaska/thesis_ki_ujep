@@ -139,15 +139,12 @@ url       = true
 % vlastní začátek dokumentu
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% TODO: Podepsaný PDF %
-% TODO: Tohle smaž na konci %
-\hbadness=10001
+%\hbadness=10001
 
 % Vlastní packages %
 \usepackage{float}
 \usepackage{needspace}
 \usepackage{graphicx}
-\usepackage{pdfpages}
 
 
 \graphicspath{{images/}}
@@ -184,7 +181,7 @@ url       = true
     Vedoucí práce: 	& \vedouci\\
 &\\
 Studijní program:       & \program\\
-\ifthenelse{\boolean{api}}{Studijní obor:          & \obor\\}{}
+
 \end{tabular} 
 }
 \vspace{1.5cm}
@@ -193,8 +190,6 @@ Studijní program:       & \program\\
 \end{center}
 
 \cleardoublepage
-
-%\includepdf[pages=1-2]{zadani-bakalarske-prace.pdf}
 
 \thispagestyle{empty} 
 {\bfseries Prohlášení}
@@ -1817,6 +1812,7 @@ V~GitHub repozitáři se nachází tyto externí přílohy:
 \begin{longtable}{ll}
 	\hline
 	ki-thesis.pdf & text práce v~PDF \\
+	zaverecna-prace.pdf & text práce v~PDF se zadáním bakalářské práce \\
 	ki-thesis.tex & zdrojový kód práce v~\LaTeX{}u \\
 	kitheses.cls & definice třídy dokumentů (rozšířená třída \texttt{scrbook})\\
 	thesis.bib & bibliografická databáze \\
